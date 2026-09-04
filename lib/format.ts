@@ -9,3 +9,17 @@ export function phFor(slug: string | undefined | null): string {
 }
 
 export const cx = (...xs: (string | false | null | undefined)[]) => xs.filter(Boolean).join(' ');
+
+/** Resolves the app's base URL for absolute links (metadata, sitemap, emails).
+ *  `?? fallback` alone doesn't catch an empty-string env var (e.g. a key added
+ *  in Vercel with a blank value) — that would reach `new URL('')` and crash
+ *  the build. Falls back to localhost on missing, blank, or malformed values. */
+export function appUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (!raw) return 'http://localhost:3000';
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return 'http://localhost:3000';
+  }
+}

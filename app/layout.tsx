@@ -4,11 +4,12 @@ import { PromoBar } from '@/components/PromoBar';
 import { Navbar }   from '@/components/Navbar';
 import { Footer }   from '@/components/Footer';
 import { ScrollTopFab } from '@/components/ScrollTopFab';
+import { appUrl } from '@/lib/format';
 
 export const metadata: Metadata = {
   title: { default: 'KismatKart — Wear Your Confidence', template: '%s · KismatKart' },
   description: 'Premium menswear — shirts, tees, jeans, hoodies, cargos and more.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(appUrl()),
   openGraph: {
     title: 'KismatKart',
     description: 'Premium menswear for the modern gentleman.',

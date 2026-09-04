@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
+import { appUrl } from '@/lib/format';
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
+  const base = appUrl();
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow: ['/admin', '/api', '/checkout', '/profile', '/orders', '/cart', '/wishlist', '/auth'] }

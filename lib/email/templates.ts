@@ -1,4 +1,4 @@
-import { inr } from '@/lib/format';
+import { inr, appUrl } from '@/lib/format';
 
 const wrap = (title: string, body: string) => `
 <!doctype html><html><body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#F4EFEA;padding:32px;color:#1A1A1A">
@@ -19,20 +19,20 @@ export const templates = {
     html: wrap('Thanks for your order!', `
       <p>We've received order <strong>${order.order_number}</strong> and it's being prepared.</p>
       <p><strong>Total charged:</strong> ${inr(Number(order.grand_total))}</p>
-      <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/orders/${order.id}" style="background:#7A1E2B;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">View order</a></p>`)
+      <p><a href="${appUrl()}/orders/${order.id}" style="background:#7A1E2B;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">View order</a></p>`)
   }),
   order_shipped: (order: any, tracking?: string) => ({
     subject: `Your order is on its way · ${order.order_number}`,
     html: wrap('Your order has shipped!', `
       <p>Order <strong>${order.order_number}</strong> has left our warehouse.</p>
       ${tracking ? `<p><strong>Tracking:</strong> ${tracking}</p>` : ''}
-      <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/orders/${order.id}" style="background:#7A1E2B;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">Track it</a></p>`)
+      <p><a href="${appUrl()}/orders/${order.id}" style="background:#7A1E2B;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">Track it</a></p>`)
   }),
   order_delivered: (order: any) => ({
     subject: `Order delivered · ${order.order_number}`,
     html: wrap('Delivered!', `
       <p>Order <strong>${order.order_number}</strong> has been delivered. Wear it well.</p>
-      <p>Loved it? <a href="${process.env.NEXT_PUBLIC_APP_URL}/orders/${order.id}">Leave a review →</a></p>`)
+      <p>Loved it? <a href="${appUrl()}/orders/${order.id}">Leave a review →</a></p>`)
   }),
   order_cancelled: (order: any) => ({
     subject: `Order cancelled · ${order.order_number}`,
