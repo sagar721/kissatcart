@@ -15,6 +15,11 @@ export async function updateOrderStatus(orderId: string, status: string, note?: 
   const parsed = StatusSchema.safeParse(status);
   if (!parsed.success) return { ok: false as const, error: 'Invalid status' };
   const sb = supabaseAdmin();
+
+  // Read status BEFORE the transition — needed to decide how to return stock on cancel.
+  const { data: before } = await sb.from('orders').select('status').eq('id', orderId).maybeSingle();
+  const previousStatus = before?.status;
+
   const { error } = await sb.rpc('set_order_status', {
     p_order_id: orderId, p_status: parsed.data, p_note: note ?? null
   });
@@ -26,7 +31,15 @@ export async function updateOrderStatus(orderId: string, status: string, note?: 
   if (parsed.data === 'cancelled') {
     const { data: items } = await sb.from('order_items').select('variant_id,quantity').eq('order_id', orderId);
     for (const it of items ?? []) {
-      await sb.rpc('release_stock', { p_variant_id: it.variant_id, p_qty: it.quantity });
+      // 'pending' orders only had stock reserved (release_stock undoes the reservation).
+      // Anything past 'pending' already had stock committed via commit_stock (moved out
+      // of reserved_qty into a stock_qty decrement), so it must be restored instead —
+      // release_stock would no-op there and the stock would be lost from inventory.
+      if (previousStatus === 'pending') {
+        await sb.rpc('release_stock', { p_variant_id: it.variant_id, p_qty: it.quantity });
+      } else {
+        await sb.rpc('restore_stock', { p_variant_id: it.variant_id, p_qty: it.quantity });
+      }
     }
   }
 
