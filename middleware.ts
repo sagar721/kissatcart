@@ -30,8 +30,14 @@ export async function middleware(req: NextRequest) {
   const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
-  // If Supabase environment variables are missing or invalid
+  // A missing/blank/invalid Supabase config must never take down the whole
+  // site — createServerClient() throws synchronously on an empty URL/key,
+  // which (uncaught) crashes middleware for *every* route, public pages
+  // included, since the matcher covers nearly all of them. Fail safe
+  // instead: deny protected/admin routes (identity can't be verified), let
+  // public routes through untouched.
   if (!rawUrl || !rawKey || !isValidUrl(rawUrl)) {
+    console.error('middleware: NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set');
     if (needsAuth || needsAdmin) {
       const loginUrl = req.nextUrl.clone();
       loginUrl.pathname = '/login';
@@ -73,7 +79,8 @@ export async function middleware(req: NextRequest) {
     if (!error && data?.user) {
       user = data.user;
     }
-  } catch {
+  } catch (err) {
+    console.error('middleware: auth check failed', err);
     user = null;
   }
 
@@ -107,7 +114,8 @@ export async function middleware(req: NextRequest) {
         });
         return redirectRes;
       }
-    } catch {
+    } catch (err) {
+      console.error('middleware: admin role check failed', err);
       const homeUrl = req.nextUrl.clone();
       homeUrl.pathname = '/';
       return NextResponse.redirect(homeUrl);
@@ -124,4 +132,3 @@ export const config = {
     '/((?!_next/static|_next/image|favicon.ico|api/public|img|.*\\..*).*)'
   ]
 };
-
