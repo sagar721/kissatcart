@@ -14,9 +14,19 @@ export function supabaseBrowser() {
     // every caller already handles via `if (error) ...`.
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-    if (!url || !key) console.error('supabaseBrowser: NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set');
+    // A truthy check alone isn't enough — a non-empty but malformed URL
+    // passes `!url` and still throws inside createBrowserClient(). Validate
+    // it actually parses as an http(s) URL before trusting it.
+    let validUrl = false;
+    if (url) {
+      try {
+        const parsed = new URL(url);
+        validUrl = parsed.protocol === 'http:' || parsed.protocol === 'https:';
+      } catch {}
+    }
+    if (!validUrl || !key) console.error('supabaseBrowser: NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set or invalid');
     _client = createBrowserClient(
-      url || 'https://placeholder.supabase.co',
+      validUrl ? (url as string) : 'https://placeholder.supabase.co',
       key || 'placeholder-anon-key'
     );
   }
