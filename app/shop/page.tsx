@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { supabaseServer } from '@/lib/supabase/server';
+import { supabasePublic } from '@/lib/supabase/server';
 import { ProductCard } from '@/components/ProductCard';
 import { CategoryCard } from '@/components/CategoryCard';
 
@@ -7,7 +7,7 @@ export const revalidate = 60;
 export const metadata = { title: 'Shop' };
 
 export default async function ShopPage({ searchParams }: { searchParams: { new?: string } }) {
-  const sb = supabaseServer();
+  const sb = supabasePublic();
   const [{ data: cats }, { data: rows }] = await Promise.all([
     sb.from('categories').select('*').eq('is_active', true).order('sort_order'),
     searchParams.new

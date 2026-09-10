@@ -1,9 +1,9 @@
-import { supabaseServer } from '@/lib/supabase/server';
+import { supabasePublic } from '@/lib/supabase/server';
 import type { Category, Product, ProductImage, ProductVariant, Inventory, SortKey } from '@/lib/types';
 
 /** Homepage: featured, new arrivals, most-loved (top rated with reviews). */
 export async function loadHomeData() {
-  const sb = supabaseServer();
+  const sb = supabasePublic();
   const [cats, arrivals, loved] = await Promise.all([
     sb.from('categories').select('*').eq('is_active', true).order('sort_order').returns<Category[]>(),
     sb.from('v_products_public').select('*').eq('is_new_arrival', true).limit(10).returns<Product[]>(),
@@ -18,7 +18,7 @@ export async function loadHomeData() {
 }
 
 export async function loadCategoryBySlug(slug: string) {
-  const sb = supabaseServer();
+  const sb = supabasePublic();
   const { data } = await sb.from('categories').select('*').eq('slug', slug).maybeSingle();
   return data as Category | null;
 }
@@ -37,7 +37,7 @@ export type CategoryFilter = {
 /** Category listing with filters, sort, and pagination.
  *  Returns { rows, total } so the UI can render a page count. */
 export async function loadCategoryProducts(categoryId: string, f: CategoryFilter = {}) {
-  const sb = supabaseServer();
+  const sb = supabasePublic();
   const page = Math.max(1, f.page ?? 1);
   const pageSize = Math.min(48, f.pageSize ?? 12);
   const from = (page - 1) * pageSize;
@@ -68,7 +68,12 @@ export async function loadCategoryProducts(categoryId: string, f: CategoryFilter
     const ids = rows.map(r => r.id);
     const { data: vs } = await sb.from('product_variants').select('id, product_id, size, color, is_active')
       .in('product_id', ids).eq('is_active', true);
-    const { data: inv } = await sb.from('v_inventory_available').select('variant_id, available_qty');
+    const variantIds = (vs ?? []).map(v => v.id);
+    // Scope to this page's variants only — this view can hold thousands of rows
+    // sitewide, and only a couple dozen are ever relevant to one listing page.
+    const { data: inv } = variantIds.length
+      ? await sb.from('v_inventory_available').select('variant_id, available_qty').in('variant_id', variantIds)
+      : { data: [] as { variant_id: string; available_qty: number }[] };
     const invMap = new Map((inv ?? []).map(i => [i.variant_id, i.available_qty]));
     const keep = new Set<string>();
     for (const v of vs ?? []) {
@@ -84,16 +89,21 @@ export async function loadCategoryProducts(categoryId: string, f: CategoryFilter
 }
 
 export async function loadProductBySlug(slug: string) {
-  const sb = supabaseServer();
+  const sb = supabasePublic();
   const { data: productData } = await sb.from('v_products_public').select('*').eq('slug', slug).maybeSingle();
   const product = productData as Product | null;
   if (!product) return null;
 
-  const [{ data: images }, { data: variants }, { data: inv }] = await Promise.all([
+  const [{ data: images }, { data: variants }] = await Promise.all([
     sb.from('product_images').select('*').eq('product_id', product.id).order('sort_order').returns<ProductImage[]>(),
-    sb.from('product_variants').select('*').eq('product_id', product.id).eq('is_active', true).returns<ProductVariant[]>(),
-    sb.from('v_inventory_available').select('*').returns<Inventory[]>()
+    sb.from('product_variants').select('*').eq('product_id', product.id).eq('is_active', true).returns<ProductVariant[]>()
   ]);
+  const variantIds = (variants ?? []).map(v => v.id);
+  // Scope to this product's own variants — the unfiltered view holds every
+  // variant sitewide, which was being fetched in full on every product view.
+  const { data: inv } = variantIds.length
+    ? await sb.from('v_inventory_available').select('*').in('variant_id', variantIds).returns<Inventory[]>()
+    : { data: [] as Inventory[] };
   const invMap = new Map((inv ?? []).map(i => [i.variant_id, i]));
 
   // Related products (same category, exclude self, top 4)

@@ -1,4 +1,5 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 
 // A missing OR malformed (non-empty but not a valid http(s) URL) value both
@@ -34,6 +35,22 @@ export function supabaseServer() {
         }
       }
     }
+  );
+}
+
+/** Read-only client for fully public catalog data (categories, products,
+ *  images, variants, availability) that carries no per-user RLS context.
+ *  Unlike supabaseServer(), this never calls cookies() — pages that only
+ *  need public data can stay statically/ISR-cacheable instead of being
+ *  forced into per-request dynamic rendering just because *some* client on
+ *  the page reads the request's cookies. Same anon key + RLS grants as
+ *  supabaseServer(), so results are identical for anonymous-readable data;
+ *  never use this where a query depends on the signed-in user. */
+export function supabasePublic() {
+  return createClient(
+    safeUrl(process.env.NEXT_PUBLIC_SUPABASE_URL),
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key',
+    { auth: { persistSession: false, autoRefreshToken: false } }
   );
 }
 
