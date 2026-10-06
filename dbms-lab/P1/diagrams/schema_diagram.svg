@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" width="1100" height="720" font-family="Liberation Sans, Arial, Helvetica, sans-serif" fill="#111">
+<rect width="1100" height="720" fill="#fff"/>
+<polyline points="405,78.0 185.0,78.0 185.0,230" fill="none" stroke="#111" stroke-width="1.6"/>
+<line x1="395" y1="70.0" x2="395" y2="86.0" stroke="#111" stroke-width="1.6"/>
+<line x1="390" y1="70.0" x2="390" y2="86.0" stroke="#111" stroke-width="1.6"/>
+<line x1="176.0" y1="230" x2="185.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<line x1="194.0" y1="230" x2="185.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<line x1="177.0" y1="210" x2="193.0" y2="210" stroke="#111" stroke-width="1.6"/>
+<text x="379" y="68.0" text-anchor="middle" font-size="14" font-weight="700">1</text>
+<text x="201.0" y="204" text-anchor="start" font-size="14" font-weight="700">N</text>
+<text x="193.0" y="66.0" text-anchor="start" font-size="12.5" font-style="italic" fill="#333">belongs to</text>
+<polyline points="695,78.0 915.0,78.0 915.0,230" fill="none" stroke="#111" stroke-width="1.6"/>
+<line x1="705" y1="70.0" x2="705" y2="86.0" stroke="#111" stroke-width="1.6"/>
+<line x1="710" y1="70.0" x2="710" y2="86.0" stroke="#111" stroke-width="1.6"/>
+<line x1="906.0" y1="230" x2="915.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<line x1="924.0" y1="230" x2="915.0" y2="214" stroke="#111" stroke-width="1.6"/>
+<line x1="907.0" y1="210" x2="923.0" y2="210" stroke="#111" stroke-width="1.6"/>
+<text x="721" y="68.0" text-anchor="middle" font-size="14" font-weight="700">1</text>
+<text x="931.0" y="204" text-anchor="start" font-size="14" font-weight="700">N</text>
+<text x="907.0" y="66.0" text-anchor="end" font-size="12.5" font-style="italic" fill="#333">works in</text>
+<polyline points="915.0,348 915.0,540" fill="none" stroke="#111" stroke-width="1.6"/>
+<line x1="907.0" y1="358" x2="923.0" y2="358" stroke="#111" stroke-width="1.6"/>
+<line x1="907.0" y1="363" x2="923.0" y2="363" stroke="#111" stroke-width="1.6"/>
+<line x1="906.0" y1="540" x2="915.0" y2="524" stroke="#111" stroke-width="1.6"/>
+<line x1="924.0" y1="540" x2="915.0" y2="524" stroke="#111" stroke-width="1.6"/>
+<line x1="907.0" y1="520" x2="923.0" y2="520" stroke="#111" stroke-width="1.6"/>
+<text x="931.0" y="370" text-anchor="start" font-size="14" font-weight="700">1</text>
+<text x="931.0" y="514" text-anchor="start" font-size="14" font-weight="700">N</text>
+<text x="903.0" y="448.0" text-anchor="end" font-size="12.5" font-style="italic" fill="#333">teaches</text>
+<polyline points="185.0,404 185.0,540" fill="none" stroke="#111" stroke-width="1.6"/>
+<line x1="177.0" y1="414" x2="193.0" y2="414" stroke="#111" stroke-width="1.6"/>
+<line x1="177.0" y1="419" x2="193.0" y2="419" stroke="#111" stroke-width="1.6"/>
+<line x1="176.0" y1="540" x2="185.0" y2="524" stroke="#111" stroke-width="1.6"/>
+<line x1="194.0" y1="540" x2="185.0" y2="524" stroke="#111" stroke-width="1.6"/>
+<line x1="177.0" y1="520" x2="193.0" y2="520" stroke="#111" stroke-width="1.6"/>
+<text x="201.0" y="426" text-anchor="start" font-size="14" font-weight="700">1</text>
+<text x="201.0" y="514" text-anchor="start" font-size="14" font-weight="700">N</text>
+<text x="173.0" y="476.0" text-anchor="end" font-size="12.5" font-style="italic" fill="#333">enrolls</text>
+<polyline points="770,588.0 550.0,588.0 550.0,644.0 330,644.0" fill="none" stroke="#111" stroke-width="1.6"/>
+<line x1="760" y1="580.0" x2="760" y2="596.0" stroke="#111" stroke-width="1.6"/>
+<line x1="755" y1="580.0" x2="755" y2="596.0" stroke="#111" stroke-width="1.6"/>
+<line x1="330" y1="635.0" x2="346" y2="644.0" stroke="#111" stroke-width="1.6"/>
+<line x1="330" y1="653.0" x2="346" y2="644.0" stroke="#111" stroke-width="1.6"/>
+<line x1="350" y1="636.0" x2="350" y2="652.0" stroke="#111" stroke-width="1.6"/>
+<text x="744" y="578.0" text-anchor="middle" font-size="14" font-weight="700">1</text>
+<text x="360" y="632.0" text-anchor="middle" font-size="14" font-weight="700">N</text>
+<text x="558.0" y="620.0" text-anchor="start" font-size="12.5" font-style="italic" fill="#333">is taken in</text>
+<rect x="405" y="30" width="290" height="90" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<rect x="405" y="30" width="290" height="34" fill="#e6e6e6" stroke="#111" stroke-width="1.8"/>
+<text x="550.0" y="53" text-anchor="middle" font-size="16" font-weight="700">DEPARTMENT</text>
+<text x="415" y="83" font-size="12" font-weight="700">PK</text>
+<text x="449" y="83" font-size="14" font-weight="700" text-decoration="underline">department_id</text>
+<text x="685" y="83" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="405" y1="92" x2="695" y2="92" stroke="#bbb" stroke-width="0.8"/>
+<text x="449" y="111" font-size="14">department_name</text>
+<text x="685" y="111" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(100)</text>
+<line x1="441" y1="64" x2="441" y2="120" stroke="#bbb" stroke-width="0.8"/>
+<rect x="40" y="230" width="290" height="174" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<rect x="40" y="230" width="290" height="34" fill="#e6e6e6" stroke="#111" stroke-width="1.8"/>
+<text x="185.0" y="253" text-anchor="middle" font-size="16" font-weight="700">STUDENT</text>
+<text x="50" y="283" font-size="12" font-weight="700">PK</text>
+<text x="84" y="283" font-size="14" font-weight="700" text-decoration="underline">student_id</text>
+<text x="320" y="283" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="40" y1="292" x2="330" y2="292" stroke="#bbb" stroke-width="0.8"/>
+<text x="84" y="311" font-size="14">student_name</text>
+<text x="320" y="311" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(100)</text>
+<line x1="40" y1="320" x2="330" y2="320" stroke="#bbb" stroke-width="0.8"/>
+<text x="84" y="339" font-size="14">email</text>
+<text x="320" y="339" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(120)</text>
+<line x1="40" y1="348" x2="330" y2="348" stroke="#bbb" stroke-width="0.8"/>
+<text x="84" y="367" font-size="14">phone</text>
+<text x="320" y="367" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(15)</text>
+<line x1="40" y1="376" x2="330" y2="376" stroke="#bbb" stroke-width="0.8"/>
+<text x="50" y="395" font-size="12" font-weight="700">FK</text>
+<text x="84" y="395" font-size="14" font-style="italic">department_id</text>
+<text x="320" y="395" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="76" y1="264" x2="76" y2="404" stroke="#bbb" stroke-width="0.8"/>
+<rect x="770" y="230" width="290" height="118" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<rect x="770" y="230" width="290" height="34" fill="#e6e6e6" stroke="#111" stroke-width="1.8"/>
+<text x="915.0" y="253" text-anchor="middle" font-size="16" font-weight="700">FACULTY</text>
+<text x="780" y="283" font-size="12" font-weight="700">PK</text>
+<text x="814" y="283" font-size="14" font-weight="700" text-decoration="underline">faculty_id</text>
+<text x="1050" y="283" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="770" y1="292" x2="1060" y2="292" stroke="#bbb" stroke-width="0.8"/>
+<text x="814" y="311" font-size="14">faculty_name</text>
+<text x="1050" y="311" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(100)</text>
+<line x1="770" y1="320" x2="1060" y2="320" stroke="#bbb" stroke-width="0.8"/>
+<text x="780" y="339" font-size="12" font-weight="700">FK</text>
+<text x="814" y="339" font-size="14" font-style="italic">department_id</text>
+<text x="1050" y="339" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="806" y1="264" x2="806" y2="348" stroke="#bbb" stroke-width="0.8"/>
+<rect x="770" y="540" width="290" height="146" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<rect x="770" y="540" width="290" height="34" fill="#e6e6e6" stroke="#111" stroke-width="1.8"/>
+<text x="915.0" y="563" text-anchor="middle" font-size="16" font-weight="700">COURSE</text>
+<text x="780" y="593" font-size="12" font-weight="700">PK</text>
+<text x="814" y="593" font-size="14" font-weight="700" text-decoration="underline">course_id</text>
+<text x="1050" y="593" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="770" y1="602" x2="1060" y2="602" stroke="#bbb" stroke-width="0.8"/>
+<text x="814" y="621" font-size="14">course_name</text>
+<text x="1050" y="621" text-anchor="end" font-size="12.5" fill="#444">VARCHAR(100)</text>
+<line x1="770" y1="630" x2="1060" y2="630" stroke="#bbb" stroke-width="0.8"/>
+<text x="814" y="649" font-size="14">credits</text>
+<text x="1050" y="649" text-anchor="end" font-size="12.5" fill="#444">SMALLINT</text>
+<line x1="770" y1="658" x2="1060" y2="658" stroke="#bbb" stroke-width="0.8"/>
+<text x="780" y="677" font-size="12" font-weight="700">FK</text>
+<text x="814" y="677" font-size="14" font-style="italic">faculty_id</text>
+<text x="1050" y="677" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="806" y1="574" x2="806" y2="686" stroke="#bbb" stroke-width="0.8"/>
+<rect x="40" y="540" width="290" height="174" fill="#fff" stroke="#111" stroke-width="1.8"/>
+<rect x="40" y="540" width="290" height="34" fill="#e6e6e6" stroke="#111" stroke-width="1.8"/>
+<text x="185.0" y="563" text-anchor="middle" font-size="16" font-weight="700">ENROLLMENT</text>
+<text x="50" y="593" font-size="12" font-weight="700">PK</text>
+<text x="84" y="593" font-size="14" font-weight="700" text-decoration="underline">enrollment_id</text>
+<text x="320" y="593" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="40" y1="602" x2="330" y2="602" stroke="#bbb" stroke-width="0.8"/>
+<text x="50" y="621" font-size="12" font-weight="700">FK</text>
+<text x="84" y="621" font-size="14" font-style="italic">student_id</text>
+<text x="320" y="621" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="40" y1="630" x2="330" y2="630" stroke="#bbb" stroke-width="0.8"/>
+<text x="50" y="649" font-size="12" font-weight="700">FK</text>
+<text x="84" y="649" font-size="14" font-style="italic">course_id</text>
+<text x="320" y="649" text-anchor="end" font-size="12.5" fill="#444">INT</text>
+<line x1="40" y1="658" x2="330" y2="658" stroke="#bbb" stroke-width="0.8"/>
+<text x="84" y="677" font-size="14">enrollment_date</text>
+<text x="320" y="677" text-anchor="end" font-size="12.5" fill="#444">DATE</text>
+<line x1="40" y1="686" x2="330" y2="686" stroke="#bbb" stroke-width="0.8"/>
+<text x="84" y="705" font-size="14">marks</text>
+<text x="320" y="705" text-anchor="end" font-size="12.5" fill="#444">NUMERIC(5,2)</text>
+<line x1="76" y1="574" x2="76" y2="714" stroke="#bbb" stroke-width="0.8"/>
+</svg>

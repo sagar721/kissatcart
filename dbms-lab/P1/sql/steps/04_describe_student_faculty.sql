@@ -1,0 +1,2 @@
+\d student
+\d faculty

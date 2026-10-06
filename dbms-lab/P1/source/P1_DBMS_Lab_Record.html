@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DBMS Lab P1 – Sagar Kumar (SOE25BTAM29)</title>
+<style>
+  @page { size: A4; margin: 22mm 18mm 20mm 18mm; }
+  @page :first { margin: 18mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Liberation Serif", "Times New Roman", serif; font-size: 11.5pt; line-height: 1.45; color: #111; margin: 0; }
+  h1, h2, h3 { font-family: "Liberation Serif", "Times New Roman", serif; color: #000; }
+  h2 { font-size: 14pt; margin: 18pt 0 6pt; padding-bottom: 3pt; border-bottom: 1.2px solid #000; break-after: avoid; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; break-after: avoid; }
+  p { margin: 0 0 7pt; text-align: justify; }
+  ul, ol { margin: 0 0 8pt 0; padding-left: 20pt; }
+  li { margin-bottom: 3pt; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 10pt; font-size: 10.5pt; break-inside: auto; }
+  tr { break-inside: avoid; }
+  th, td { border: 1px solid #555; padding: 3.5pt 6pt; text-align: left; vertical-align: top; }
+  th { background: #e9e9e9; font-weight: bold; }
+  code, .mono { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 9pt; }
+  pre { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 8.6pt; line-height: 1.38;
+        background: #f6f6f6; border: 1px solid #bbb; padding: 7pt 9pt; margin: 4pt 0 10pt; white-space: pre-wrap; }
+  .u { text-decoration: underline; font-weight: bold; }
+  .fk { font-style: italic; }
+  figure { margin: 8pt 0 12pt; text-align: center; break-inside: avoid; }
+  figure img { display: block; margin: 0 auto; border: 1px solid #999; }
+  figure img.diagram { border: none; width: 100%; }
+  figcaption { font-size: 10pt; margin-top: 5pt; font-style: italic; }
+  figcaption b { font-style: normal; }
+  .page-break { break-before: page; }
+  .avoid { break-inside: avoid; }
+  .note { border: 1px solid #777; background: #f4f4f4; padding: 6pt 9pt; font-size: 10.3pt; margin: 6pt 0 10pt; }
+  .schema p { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 9.6pt; text-align: left; margin: 0 0 5pt; }
+  .qa dt { font-weight: bold; margin-top: 7pt; break-after: avoid; }
+  .qa dd { margin: 2pt 0 0 0; text-align: justify; }
+
+  /* ---------- cover ---------- */
+  .cover { height: 261mm; border: 2px solid #000; padding: 14mm 14mm 12mm; display: flex; flex-direction: column; }
+  .cover .inner { border: 0.6px solid #000; flex: 1; padding: 12mm 10mm; display: flex; flex-direction: column; }
+  .cover .kicker { text-align: center; font-size: 13pt; letter-spacing: 3pt; text-transform: uppercase; margin-top: 4mm; }
+  .cover .course { text-align: center; font-size: 22pt; font-weight: bold; margin: 6mm 0 1mm; }
+  .cover .code { text-align: center; font-size: 13pt; }
+  .cover .rule { border-top: 1.4px solid #000; margin: 9mm 20mm; }
+  .cover .pno { text-align: center; font-size: 15pt; font-weight: bold; letter-spacing: 1pt; }
+  .cover .ptitle { text-align: center; font-size: 15pt; margin: 4mm 8mm 0; line-height: 1.4; }
+  .cover .case { text-align: center; font-size: 12pt; margin-top: 4mm; }
+  .cover table.details { width: 82%; margin: auto auto 0; font-size: 12pt; }
+  .cover table.details th { width: 38%; background: #efefef; }
+  .cover table.details td, .cover table.details th { padding: 5pt 9pt; border: 1px solid #333; }
+  .cover .details-title { text-align: center; font-weight: bold; font-size: 12.5pt; margin: auto 0 3mm; letter-spacing: 1pt; }
+  .cover .tail { margin-top: 0; }
+
+  .sign { margin-top: 26pt; display: flex; justify-content: space-between; font-size: 11pt; break-inside: avoid; }
+  .sign div { width: 45%; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 1–2. COVER + STUDENT DETAILS ======================= -->
+<section class="cover">
+  <div class="inner">
+    <div class="kicker">Practical Record</div>
+    <div class="course">DBMS Lab</div>
+    <div class="code">Course Code: U25AMILPC307</div>
+    <div class="rule"></div>
+    <div class="pno">PRACTICAL P1</div>
+    <div class="ptitle">Database Creation and ER Modeling – Designing an ER diagram for a real-world case study and mapping it into a relational schema</div>
+    <div class="case">Case Study: <b>College Management System</b></div>
+    <div class="details-title">STUDENT DETAILS</div>
+    <table class="details">
+      <tr><th>Name</th><td>Sagar Kumar</td></tr>
+      <tr><th>PRN</th><td>SOE25BTAM29</td></tr>
+      <tr><th>Section</th><td>A</td></tr>
+      <tr><th>Program</th><td>Bachelor of Technology</td></tr>
+      <tr><th>Year</th><td>2</td></tr>
+      <tr><th>Semester</th><td>III</td></tr>
+      <tr><th>Course Code</th><td>U25AMILPC307</td></tr>
+      <tr><th>Course Title</th><td>DBMS Lab</td></tr>
+      <tr><th>Practical</th><td>P1</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ======================= 3. EXPERIMENT ======================= -->
+<h2 style="margin-top:0">1. Experiment Number and Title</h2>
+<table>
+  <tr><th style="width:28%">Experiment No.</th><td>P1</td></tr>
+  <tr><th>Title</th><td>Database Creation and ER Modeling – Designing an ER diagram for a real-world case study and mapping it into a relational schema</td></tr>
+  <tr><th>Case Study</th><td>College Management System</td></tr>
+  <tr><th>Software Used</th><td>PostgreSQL 17 (server and <code>psql</code> client)</td></tr>
+</table>
+
+<!-- ======================= 4. AIM ======================= -->
+<h2>2. Aim</h2>
+<p>To design an Entity–Relationship (ER) model for a College Management System, map the ER model into a relational schema, and create the corresponding database and tables in PostgreSQL 17 with appropriate primary key, foreign key and integrity constraints.</p>
+
+<!-- ======================= 5. PROBLEM STATEMENT ======================= -->
+<h2>3. Problem Statement</h2>
+<p>A college needs to store and manage information about its departments, students, faculty members, the courses offered, and the enrollment of students in those courses. Every student and every faculty member belongs to exactly one department, every course is taught by one faculty member, and a student may enroll in many courses while a course may have many students. For each enrollment, the date of enrollment and the marks obtained must be recorded.</p>
+<p>Design an ER diagram that captures these requirements, convert it into a relational schema, and implement the schema as a PostgreSQL database named <code>college_db</code>.</p>
+
+<!-- ======================= 6. OBJECTIVES ======================= -->
+<h2>4. Objectives</h2>
+<ol>
+  <li>To identify the entities, attributes and relationships of a real-world system.</li>
+  <li>To select a primary key for every entity and identify the foreign keys needed to link entities.</li>
+  <li>To determine the cardinality (1:N, M:N) and participation of each relationship.</li>
+  <li>To draw the ER diagram using standard (Chen) notation.</li>
+  <li>To map the ER diagram into a relational schema using standard ER-to-relational mapping rules.</li>
+  <li>To create the database and tables in PostgreSQL 17 using DDL commands and verify them.</li>
+</ol>
+
+<!-- ======================= 7. CASE STUDY ======================= -->
+<h2>5. Case Study Description – College Management System</h2>
+<p>The college is organised into <b>departments</b> (for example, Computer Science and Engineering, Artificial Intelligence and Machine Learning). Each department is identified by a department ID and has a unique name.</p>
+<p><b>Students</b> are admitted into a department. For every student the college records a student ID, name, e-mail address (unique for each student) and phone number. <b>Faculty</b> members are also attached to a single department and are identified by a faculty ID.</p>
+<p>The college offers <b>courses</b>. Each course has a course ID, a name and a number of credits, and is assigned to one faculty member who teaches it; a faculty member may teach several courses.</p>
+<p>Students register for courses. One student can take many courses and one course can be taken by many students, so this is a many-to-many association. Each registration is stored as an <b>enrollment</b> record holding the enrollment ID, the student, the course, the enrollment date and the marks scored (marks may be empty until the course is evaluated). A student cannot enroll in the same course twice.</p>
+
+<!-- ======================= 8. ENTITIES ======================= -->
+<h2>6. Entities</h2>
+<table>
+  <tr><th style="width:5%">#</th><th style="width:20%">Entity</th><th>Description</th></tr>
+  <tr><td>1</td><td>Department</td><td>An academic department of the college.</td></tr>
+  <tr><td>2</td><td>Student</td><td>A student admitted to a department.</td></tr>
+  <tr><td>3</td><td>Faculty</td><td>A teaching staff member working in a department.</td></tr>
+  <tr><td>4</td><td>Course</td><td>A subject offered by the college and taught by a faculty member.</td></tr>
+  <tr><td>5</td><td>Enrollment</td><td>Associative entity that records a student's registration in a course (resolves the M:N relationship between Student and Course).</td></tr>
+</table>
+
+<!-- ======================= 9. ATTRIBUTES ======================= -->
+<h2>7. Attributes</h2>
+<table>
+  <tr><th style="width:15%">Entity</th><th style="width:22%">Attribute</th><th style="width:20%">Data Type (PostgreSQL)</th><th>Constraint / Description</th></tr>
+  <tr><td rowspan="2">Department</td><td>department_id</td><td>INT (identity)</td><td>Primary key, auto-generated</td></tr>
+  <tr><td>department_name</td><td>VARCHAR(100)</td><td>NOT NULL, UNIQUE</td></tr>
+  <tr><td rowspan="5">Student</td><td>student_id</td><td>INT (identity)</td><td>Primary key, auto-generated</td></tr>
+  <tr><td>student_name</td><td>VARCHAR(100)</td><td>NOT NULL</td></tr>
+  <tr><td>email</td><td>VARCHAR(120)</td><td>NOT NULL, UNIQUE</td></tr>
+  <tr><td>phone</td><td>VARCHAR(15)</td><td>Optional contact number</td></tr>
+  <tr><td>department_id</td><td>INT</td><td>NOT NULL, foreign key → Department</td></tr>
+  <tr><td rowspan="3">Faculty</td><td>faculty_id</td><td>INT (identity)</td><td>Primary key, auto-generated</td></tr>
+  <tr><td>faculty_name</td><td>VARCHAR(100)</td><td>NOT NULL</td></tr>
+  <tr><td>department_id</td><td>INT</td><td>NOT NULL, foreign key → Department</td></tr>
+  <tr><td rowspan="4">Course</td><td>course_id</td><td>INT (identity)</td><td>Primary key, auto-generated</td></tr>
+  <tr><td>course_name</td><td>VARCHAR(100)</td><td>NOT NULL</td></tr>
+  <tr><td>credits</td><td>SMALLINT</td><td>NOT NULL, CHECK 1 to 6</td></tr>
+  <tr><td>faculty_id</td><td>INT</td><td>NOT NULL, foreign key → Faculty</td></tr>
+  <tr><td rowspan="5">Enrollment</td><td>enrollment_id</td><td>INT (identity)</td><td>Primary key, auto-generated</td></tr>
+  <tr><td>student_id</td><td>INT</td><td>NOT NULL, foreign key → Student</td></tr>
+  <tr><td>course_id</td><td>INT</td><td>NOT NULL, foreign key → Course</td></tr>
+  <tr><td>enrollment_date</td><td>DATE</td><td>NOT NULL, DEFAULT CURRENT_DATE</td></tr>
+  <tr><td>marks</td><td>NUMERIC(5,2)</td><td>Optional, CHECK 0 to 100</td></tr>
+</table>
+<p>All attributes are <i>simple</i> and <i>single-valued</i>. The pair (student_id, course_id) in Enrollment is additionally declared UNIQUE so that a student cannot enroll in the same course twice.</p>
+
+<!-- ======================= 10. PRIMARY KEYS ======================= -->
+<h2>8. Primary Keys</h2>
+<table>
+  <tr><th style="width:20%">Table</th><th style="width:24%">Primary Key</th><th style="width:26%">Constraint Name</th><th>Reason</th></tr>
+  <tr><td>department</td><td class="u">department_id</td><td>pk_department</td><td>Uniquely identifies each department.</td></tr>
+  <tr><td>student</td><td class="u">student_id</td><td>pk_student</td><td>Uniquely identifies each student.</td></tr>
+  <tr><td>faculty</td><td class="u">faculty_id</td><td>pk_faculty</td><td>Uniquely identifies each faculty member.</td></tr>
+  <tr><td>course</td><td class="u">course_id</td><td>pk_course</td><td>Uniquely identifies each course.</td></tr>
+  <tr><td>enrollment</td><td class="u">enrollment_id</td><td>pk_enrollment</td><td>Surrogate key for each enrollment; (student_id, course_id) is kept as an alternate (candidate) key using UNIQUE.</td></tr>
+</table>
+
+<!-- ======================= 11. FOREIGN KEYS ======================= -->
+<h2>9. Foreign Keys</h2>
+<table>
+  <tr><th style="width:15%">Table</th><th style="width:17%">Foreign Key</th><th style="width:25%">References</th><th style="width:24%">Constraint Name</th><th>On Delete</th></tr>
+  <tr><td>student</td><td class="fk">department_id</td><td>department(department_id)</td><td>fk_student_department</td><td>RESTRICT</td></tr>
+  <tr><td>faculty</td><td class="fk">department_id</td><td>department(department_id)</td><td>fk_faculty_department</td><td>RESTRICT</td></tr>
+  <tr><td>course</td><td class="fk">faculty_id</td><td>faculty(faculty_id)</td><td>fk_course_faculty</td><td>RESTRICT</td></tr>
+  <tr><td>enrollment</td><td class="fk">student_id</td><td>student(student_id)</td><td>fk_enrollment_student</td><td>CASCADE</td></tr>
+  <tr><td>enrollment</td><td class="fk">course_id</td><td>course(course_id)</td><td>fk_enrollment_course</td><td>CASCADE</td></tr>
+</table>
+<p>All foreign keys use <code>ON UPDATE CASCADE</code>. A department or faculty member that is still referenced cannot be deleted (RESTRICT), whereas deleting a student or a course automatically removes the related enrollment rows (CASCADE).</p>
+
+<!-- ======================= 12. RELATIONSHIPS ======================= -->
+<h2>10. Relationships and Cardinalities</h2>
+<table>
+  <tr><th style="width:21%">Relationship</th><th style="width:25%">Entities</th><th style="width:13%">Cardinality</th><th>Meaning and Participation</th></tr>
+  <tr><td>Belongs_To</td><td>Department – Student</td><td>1 : N</td><td>One department has many students; each student belongs to exactly one department. Student participation is <b>total</b> (department_id NOT NULL); Department participation is partial.</td></tr>
+  <tr><td>Works_In</td><td>Department – Faculty</td><td>1 : N</td><td>One department has many faculty members; each faculty member works in exactly one department. Faculty participation is <b>total</b>.</td></tr>
+  <tr><td>Teaches</td><td>Faculty – Course</td><td>1 : N</td><td>One faculty member teaches many courses; each course is taught by exactly one faculty member. Course participation is <b>total</b>.</td></tr>
+  <tr><td>Enrolls (via Enrollment)</td><td>Student – Course</td><td>M : N</td><td>A student enrolls in many courses and a course has many students. Implemented through the Enrollment table as two 1 : N relationships: Student 1 : N Enrollment and Course 1 : N Enrollment. Participation of both sides is partial.</td></tr>
+</table>
+
+<!-- ======================= 13. ER DIAGRAM ======================= -->
+<h2 class="page-break" style="margin-top:0">11. ER Diagram</h2>
+<figure>
+  <img class="diagram" src="../diagrams/er_diagram.svg" alt="ER diagram of the College Management System">
+  <figcaption><b>Figure 1:</b> ER diagram of the College Management System (Chen notation)</figcaption>
+</figure>
+<table class="avoid" style="font-size:10pt">
+  <tr><th colspan="2">Notation used in Figure 1</th></tr>
+  <tr><td style="width:40%">Rectangle</td><td>Entity</td></tr>
+  <tr><td>Rectangle enclosing a diamond</td><td>Associative entity (Enrollment, resolving Student M : N Course)</td></tr>
+  <tr><td>Diamond</td><td>Relationship</td></tr>
+  <tr><td>Ellipse with <span class="u">underlined</span> name</td><td>Primary key attribute</td></tr>
+  <tr><td>Dashed ellipse marked (FK)</td><td>Foreign key attribute (shown to make the mapping explicit)</td></tr>
+  <tr><td>1, N, M on a line</td><td>Cardinality of that side of the relationship</td></tr>
+  <tr><td>Double line</td><td>Total participation of the entity in the relationship</td></tr>
+</table>
+
+<!-- ======================= 14. RELATIONAL SCHEMA ======================= -->
+<h2 class="page-break" style="margin-top:0">12. Relational Schema</h2>
+<h3>12.1 Mapping Rules Applied</h3>
+<ol>
+  <li><b>Strong entities:</b> Department, Student, Faculty and Course each become a table containing their simple attributes; the key attribute becomes the PRIMARY KEY.</li>
+  <li><b>1 : N relationships</b> (Belongs_To, Works_In, Teaches): the primary key of the “1” side is added as a FOREIGN KEY in the table of the “N” side – department_id in student and faculty, faculty_id in course. Because participation of the N side is total, these columns are NOT NULL.</li>
+  <li><b>M : N relationship</b> (Student–Course): a separate table <i>enrollment</i> is created. It contains the primary keys of both participating entities as foreign keys (student_id, course_id) and the attributes of the relationship (enrollment_date, marks). A surrogate primary key enrollment_id is used, and UNIQUE (student_id, course_id) preserves the rule that a student enrolls in a course only once.</li>
+</ol>
+<h3>12.2 Schema (PK underlined, FK in italics)</h3>
+<div class="schema">
+  <p>DEPARTMENT ( <span class="u">department_id</span>, department_name )</p>
+  <p>STUDENT ( <span class="u">student_id</span>, student_name, email, phone, <span class="fk">department_id</span> → DEPARTMENT )</p>
+  <p>FACULTY ( <span class="u">faculty_id</span>, faculty_name, <span class="fk">department_id</span> → DEPARTMENT )</p>
+  <p>COURSE ( <span class="u">course_id</span>, course_name, credits, <span class="fk">faculty_id</span> → FACULTY )</p>
+  <p>ENROLLMENT ( <span class="u">enrollment_id</span>, <span class="fk">student_id</span> → STUDENT, <span class="fk">course_id</span> → COURSE, enrollment_date, marks )</p>
+</div>
+<figure>
+  <img class="diagram" src="../diagrams/schema_diagram.svg" alt="Relational schema diagram" style="width:92%">
+  <figcaption><b>Figure 2:</b> Relational schema diagram showing tables, PK/FK columns and 1 : N links (crow’s-foot marks the “many” side)</figcaption>
+</figure>
+
+<!-- ======================= 15. EXPLANATION ======================= -->
+<h2>13. Explanation of the ER Model</h2>
+<ul>
+  <li><b>Department</b> is the central entity. It takes part in two one-to-many relationships: <i>Belongs_To</i> with Student and <i>Works_In</i> with Faculty. A department may exist before any students or faculty are added (partial participation), but every student and every faculty member must belong to a department (total participation).</li>
+  <li><b>Faculty</b> and <b>Course</b> are linked by <i>Teaches</i> (1 : N). Each course has exactly one faculty member in charge, so faculty_id is stored in the course table and is NOT NULL.</li>
+  <li><b>Student</b> and <b>Course</b> have a many-to-many relationship. A relational table cannot store a list of courses in a single student row, so the relationship is modelled as the associative entity <b>Enrollment</b>. Each enrollment row links one student to one course and also holds the facts that belong to that pairing – the enrollment date and the marks.</li>
+  <li>Keys enforce correctness: primary keys prevent duplicate rows, foreign keys maintain <i>referential integrity</i> (an enrollment cannot point to a student who does not exist), UNIQUE prevents duplicate e-mail addresses, department names and repeat enrollments, and CHECK constraints keep credits between 1 and 6 and marks between 0 and 100.</li>
+  <li>Identity columns (<code>GENERATED ALWAYS AS IDENTITY</code>, the SQL-standard replacement for SERIAL in PostgreSQL) generate key values automatically.</li>
+</ul>
+
+<!-- ======================= 16. SQL ======================= -->
+<h2 class="page-break" style="margin-top:0">14. SQL Commands for Database Creation (PostgreSQL 17)</h2>
+<p>The commands below create the database <code>college_db</code> and its five tables. Parent tables are created before the tables that reference them.</p>
+<pre>-- Create the database and connect to it
+CREATE DATABASE college_db;
+\c college_db
+
+-- Parent table
+CREATE TABLE department (
+    department_id   INT GENERATED ALWAYS AS IDENTITY,
+    department_name VARCHAR(100) NOT NULL,
+    CONSTRAINT pk_department PRIMARY KEY (department_id),
+    CONSTRAINT uq_department_name UNIQUE (department_name)
+);
+
+-- Department 1 : N Student
+CREATE TABLE student (
+    student_id    INT GENERATED ALWAYS AS IDENTITY,
+    student_name  VARCHAR(100) NOT NULL,
+    email         VARCHAR(120) NOT NULL,
+    phone         VARCHAR(15),
+    department_id INT NOT NULL,
+    CONSTRAINT pk_student PRIMARY KEY (student_id),
+    CONSTRAINT uq_student_email UNIQUE (email),
+    CONSTRAINT fk_student_department FOREIGN KEY (department_id)
+        REFERENCES department (department_id)
+        ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+-- Department 1 : N Faculty
+CREATE TABLE faculty (
+    faculty_id    INT GENERATED ALWAYS AS IDENTITY,
+    faculty_name  VARCHAR(100) NOT NULL,
+    department_id INT NOT NULL,
+    CONSTRAINT pk_faculty PRIMARY KEY (faculty_id),
+    CONSTRAINT fk_faculty_department FOREIGN KEY (department_id)
+        REFERENCES department (department_id)
+        ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+-- Faculty 1 : N Course
+CREATE TABLE course (
+    course_id   INT GENERATED ALWAYS AS IDENTITY,
+    course_name VARCHAR(100) NOT NULL,
+    credits     SMALLINT NOT NULL,
+    faculty_id  INT NOT NULL,
+    CONSTRAINT pk_course PRIMARY KEY (course_id),
+    CONSTRAINT chk_course_credits CHECK (credits BETWEEN 1 AND 6),
+    CONSTRAINT fk_course_faculty FOREIGN KEY (faculty_id)
+        REFERENCES faculty (faculty_id)
+        ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+-- Student M : N Course (associative table)
+CREATE TABLE enrollment (
+    enrollment_id   INT GENERATED ALWAYS AS IDENTITY,
+    student_id      INT NOT NULL,
+    course_id       INT NOT NULL,
+    enrollment_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    marks           NUMERIC(5,2),
+    CONSTRAINT pk_enrollment PRIMARY KEY (enrollment_id),
+    CONSTRAINT uq_enrollment_student_course UNIQUE (student_id, course_id),
+    CONSTRAINT chk_enrollment_marks CHECK (marks BETWEEN 0 AND 100),
+    CONSTRAINT fk_enrollment_student FOREIGN KEY (student_id)
+        REFERENCES student (student_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_enrollment_course FOREIGN KEY (course_id)
+        REFERENCES course (course_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);</pre>
+
+<!-- ======================= 17. EXECUTION EVIDENCE ======================= -->
+<h2 class="page-break" style="margin-top:0">15. Execution Evidence</h2>
+<div class="note">
+  The screenshots in this section were captured from interactive <code>psql</code> 17.11 terminal sessions connected to a PostgreSQL 17.11 server (Linux, local socket, port 5433), executed on 06-10-2026. Every command visible was actually executed and every result shown was produced by PostgreSQL. The images are unedited apart from cropping empty space around the terminal text.
+</div>
+<table>
+  <tr><th style="width:9%">No.</th><th style="width:43%">Commands executed</th><th>Purpose</th></tr>
+  <tr><td>1</td><td><code>psql --version; SHOW server_version; CREATE DATABASE college_db; \l college_db; \c college_db</code></td><td>Confirms PostgreSQL 17 and creates the database college_db.</td></tr>
+  <tr><td>2</td><td><code>CREATE TABLE department / student / faculty</code></td><td>Creates the parent table and the two tables that reference it.</td></tr>
+  <tr><td>3</td><td><code>CREATE TABLE course / enrollment; \dt</code></td><td>Creates the remaining tables and lists all five tables.</td></tr>
+  <tr><td>4</td><td><code>\d student; \d faculty</code></td><td>Shows columns, PK, UNIQUE and FK constraints of student and faculty.</td></tr>
+  <tr><td>5</td><td><code>\d course; \d enrollment</code></td><td>Shows columns, PK, UNIQUE, CHECK and FK constraints of course and enrollment.</td></tr>
+  <tr><td>6</td><td><code>SELECT … FROM information_schema.table_constraints …</code></td><td>Lists every primary key and foreign key with the referenced table.</td></tr>
+  <tr><td>7</td><td><code>INSERT INTO department / faculty / student / course / enrollment</code></td><td>Inserts sample rows to test the schema.</td></tr>
+  <tr><td>8</td><td><code>SELECT … FROM enrollment JOIN student JOIN course JOIN faculty</code></td><td>Joins the tables through their foreign keys.</td></tr>
+  <tr><td>9</td><td><code>Invalid INSERTs and DELETE</code></td><td>Shows PostgreSQL rejecting a missing FK value, marks &gt; 100, a duplicate enrollment and deletion of a referenced department.</td></tr>
+</table>
+<figure>
+  <img src="../screenshots/SS01_create_database.png" style="width:172.0mm" alt="Checking the PostgreSQL version, creating the database college_db and connecting to it">
+  <figcaption><b>Screenshot 1:</b> Checking the PostgreSQL version, creating the database college_db and connecting to it</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS02_create_department_student_faculty.png" style="width:128.4mm" alt="Creating the tables department, student and faculty">
+  <figcaption><b>Screenshot 2:</b> Creating the tables department, student and faculty</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS03_create_course_enrollment_list_tables.png" style="width:146.0mm" alt="Creating the tables course and enrollment, then listing all tables with \dt">
+  <figcaption><b>Screenshot 3:</b> Creating the tables course and enrollment, then listing all tables with \dt</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS04_describe_student_faculty.png" style="width:172.0mm" alt="Structure and constraints of the student and faculty tables (\d)">
+  <figcaption><b>Screenshot 4:</b> Structure and constraints of the student and faculty tables (\d)</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS05_describe_course_enrollment.png" style="width:172.0mm" alt="Structure and constraints of the course and enrollment tables (\d)">
+  <figcaption><b>Screenshot 5:</b> Structure and constraints of the course and enrollment tables (\d)</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS06_verify_primary_foreign_keys.png" style="width:147.6mm" alt="Verifying all primary keys and foreign keys from information_schema">
+  <figcaption><b>Screenshot 6:</b> Verifying all primary keys and foreign keys from information_schema</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS07_insert_sample_data.png" style="width:149.6mm" alt="Inserting sample data into all five tables">
+  <figcaption><b>Screenshot 7:</b> Inserting sample data into all five tables</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS08_join_query_output.png" style="width:150.8mm" alt="Join query across enrollment, student, course and faculty">
+  <figcaption><b>Screenshot 8:</b> Join query across enrollment, student, course and faculty</figcaption>
+</figure>
+<figure>
+  <img src="../screenshots/SS09_constraint_enforcement.png" style="width:172.0mm" alt="Constraint enforcement – invalid operations rejected by PostgreSQL">
+  <figcaption><b>Screenshot 9:</b> Constraint enforcement – invalid operations rejected by PostgreSQL</figcaption>
+</figure>
+
+<!-- ======================= 18. RESULT ======================= -->
+<h2>16. Result and Conclusion</h2>
+<p>An ER model for the College Management System was designed with five entities – Department, Student, Faculty, Course and Enrollment – and four relationships: Department 1 : N Student, Department 1 : N Faculty, Faculty 1 : N Course, and Student M : N Course resolved through the Enrollment associative entity. The ER diagram was mapped into a relational schema using standard mapping rules, and the database <code>college_db</code> with all five tables was successfully created in PostgreSQL 17.</p>
+<p>The execution output confirms that all primary key, foreign key, UNIQUE and CHECK constraints were created as designed, that data can be joined correctly across all five tables, and that PostgreSQL rejects invalid data (non-existent student, marks above 100, duplicate enrollment, deletion of a referenced department). Hence, the practical was performed successfully.</p>
+
+<div class="sign">
+  <div>Date: ____________________</div>
+  <div style="text-align:right">Signature of Faculty: ____________________</div>
+</div>
+
+<!-- ======================= 19. VIVA ======================= -->
+<h2 class="page-break" style="margin-top:0">17. Viva Questions and Answers</h2>
+<dl class="qa">
+  <dt>Q1. What is an ER model?</dt>
+  <dd>The Entity–Relationship model is a high-level conceptual data model that describes the data of a system in terms of entities, their attributes and the relationships among them. It is drawn as an ER diagram and later converted into tables.</dd>
+
+  <dt>Q2. What is the difference between an entity and an entity set?</dt>
+  <dd>An entity is a single real-world object that can be distinctly identified, e.g. one particular student. An entity set is the collection of all entities of the same type, e.g. all students; it becomes a table in the relational model.</dd>
+
+  <dt>Q3. What are the different types of attributes?</dt>
+  <dd>Simple (atomic) and composite, single-valued and multi-valued, stored and derived, and key attributes. A null-able attribute such as <i>marks</i> may also have no value.</dd>
+
+  <dt>Q4. Define super key, candidate key and primary key.</dt>
+  <dd>A super key is any set of attributes that uniquely identifies a row. A candidate key is a minimal super key. The primary key is the candidate key chosen by the designer to identify rows; it cannot be NULL. In <i>student</i>, both student_id and email are candidate keys and student_id is the primary key.</dd>
+
+  <dt>Q5. What is a foreign key and what is referential integrity?</dt>
+  <dd>A foreign key is an attribute in one table that refers to the primary key of another table. Referential integrity means every non-null foreign key value must match an existing primary key value in the referenced table, e.g. student.department_id must exist in department.</dd>
+
+  <dt>Q6. What is cardinality? Name its types.</dt>
+  <dd>Cardinality (mapping cardinality) is the number of entities of one set that can be associated with entities of another set through a relationship: one-to-one (1:1), one-to-many (1:N), many-to-one (N:1) and many-to-many (M:N).</dd>
+
+  <dt>Q7. What is the difference between total and partial participation?</dt>
+  <dd>In total participation every entity of the set must take part in the relationship (shown by a double line), e.g. every student must belong to a department. In partial participation some entities may not take part, e.g. a department may have no students yet.</dd>
+
+  <dt>Q8. How is a 1 : N relationship mapped to tables?</dt>
+  <dd>The primary key of the table on the “1” side is placed as a foreign key in the table on the “N” side. For Department 1 : N Student, department_id is added to the student table.</dd>
+
+  <dt>Q9. How is an M : N relationship mapped, and why is the Enrollment table needed?</dt>
+  <dd>An M : N relationship cannot be represented by a single foreign key, so a new table is created containing the primary keys of both entities as foreign keys plus any relationship attributes. Enrollment stores student_id, course_id, enrollment_date and marks, converting Student M : N Course into two 1 : N relationships.</dd>
+
+  <dt>Q10. What is an associative entity? Is Enrollment a weak entity?</dt>
+  <dd>An associative entity is an entity created to represent an M : N relationship that has its own attributes. Enrollment is not a weak entity here because it has its own primary key (enrollment_id) and does not depend on an owner entity for identification.</dd>
+
+  <dt>Q11. Why is UNIQUE (student_id, course_id) used in the enrollment table?</dt>
+  <dd>Because enrollment_id is a surrogate key, it would not by itself prevent the same student from being enrolled in the same course twice. The UNIQUE constraint enforces this business rule and makes (student_id, course_id) an alternate key.</dd>
+
+  <dt>Q12. What does GENERATED ALWAYS AS IDENTITY do?</dt>
+  <dd>It makes PostgreSQL automatically generate a unique sequential value for the column on every insert. It is the SQL-standard identity column and is preferred over the older SERIAL pseudo-type. With ALWAYS, users cannot insert their own value unless they use OVERRIDING SYSTEM VALUE.</dd>
+
+  <dt>Q13. What is the difference between ON DELETE CASCADE and ON DELETE RESTRICT?</dt>
+  <dd>CASCADE automatically deletes the child rows when the parent row is deleted (deleting a student removes the student's enrollments). RESTRICT refuses to delete a parent row while child rows still refer to it (a department with students cannot be deleted), as shown in Screenshot 9.</dd>
+
+  <dt>Q14. What are DDL and DML? Give examples.</dt>
+  <dd>DDL (Data Definition Language) defines the structure of the database: CREATE, ALTER, DROP, TRUNCATE. DML (Data Manipulation Language) works on the data: INSERT, UPDATE, DELETE, SELECT.</dd>
+
+  <dt>Q15. What is a relational schema? Define degree and cardinality of a relation.</dt>
+  <dd>A relational schema is the name of a relation together with its list of attributes, e.g. COURSE(course_id, course_name, credits, faculty_id). The degree is the number of attributes (4 for course) and the cardinality is the number of tuples (rows) in the relation at a given time.</dd>
+</dl>
+
+</body>
+</html>
