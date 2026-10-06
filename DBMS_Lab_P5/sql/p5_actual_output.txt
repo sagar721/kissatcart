@@ -1,0 +1,259 @@
+-- =====================================================================
+-- DBMS Lab (U25AMILPC307) - Practical P5
+-- Aggregate and Grouping Queries: COUNT, SUM, AVG, MIN, MAX,
+-- GROUP BY, HAVING, ROLLUP and CUBE
+-- Database : college_db            DBMS : PostgreSQL 17
+-- Student  : Sagar Kumar (SOE25BTAM29), Section A
+-- =====================================================================
+-- ---------------------------------------------------------------------
+-- Screenshot 1 : COUNT / SUM / AVG
+-- ---------------------------------------------------------------------
+-- Q1. Total number of students
+SELECT COUNT(*) AS total_students
+FROM student;
+ total_students 
+----------------
+             15
+(1 row)
+
+-- Q2. COUNT(*) vs COUNT(column): COUNT(marks) ignores NULL marks
+SELECT COUNT(*)     AS total_enrollments,
+       COUNT(marks) AS graded_enrollments
+FROM enrollment;
+ total_enrollments | graded_enrollments 
+-------------------+--------------------
+                29 |                 28
+(1 row)
+
+-- Q3. Total monthly salary expense of all faculty
+SELECT SUM(salary) AS total_salary_expense
+FROM faculty;
+ total_salary_expense 
+----------------------
+            835000.00
+(1 row)
+
+-- Q4. Average marks (rounded to 2 decimal places)
+SELECT ROUND(AVG(marks), 2) AS average_marks
+FROM enrollment;
+ average_marks 
+---------------
+         75.54
+(1 row)
+
+-- ---------------------------------------------------------------------
+-- Screenshot 2 : MIN / MAX
+-- ---------------------------------------------------------------------
+-- Q5. Highest marks
+SELECT MAX(marks) AS highest_marks
+FROM enrollment;
+ highest_marks 
+---------------
+         94.00
+(1 row)
+
+-- Q6. Lowest marks
+SELECT MIN(marks) AS lowest_marks
+FROM enrollment;
+ lowest_marks 
+--------------
+        55.00
+(1 row)
+
+-- Q7. Salary range of faculty
+SELECT MIN(salary) AS min_salary,
+       MAX(salary) AS max_salary,
+       MAX(salary) - MIN(salary) AS salary_gap
+FROM faculty;
+ min_salary | max_salary | salary_gap 
+------------+------------+------------
+   68000.00 |  130000.00 |   62000.00
+(1 row)
+
+-- Q8. Youngest and oldest student (MIN/MAX on a DATE column)
+SELECT MIN(date_of_birth) AS oldest_student_dob,
+       MAX(date_of_birth) AS youngest_student_dob
+FROM student;
+ oldest_student_dob | youngest_student_dob 
+--------------------+----------------------
+ 2005-05-29         | 2006-12-01
+(1 row)
+
+-- ---------------------------------------------------------------------
+-- Screenshot 3 : GROUP BY
+-- ---------------------------------------------------------------------
+-- Q9. Department-wise student count
+SELECT d.department_name,
+       COUNT(s.student_id) AS total_students
+FROM department d
+LEFT JOIN student s
+       ON d.department_id = s.department_id
+GROUP BY d.department_name
+ORDER BY total_students DESC, d.department_name;
+     department_name     | total_students 
+-------------------------+----------------
+ AI and Machine Learning |              5
+ Computer Science        |              4
+ Electronics             |              3
+ Mechanical              |              3
+ Civil                   |              0
+(5 rows)
+
+-- Q10. Average, highest and lowest marks per course
+SELECT c.course_name,
+       COUNT(e.marks)         AS students_graded,
+       ROUND(AVG(e.marks), 2) AS average_marks,
+       MAX(e.marks)           AS highest,
+       MIN(e.marks)           AS lowest
+FROM course c
+JOIN enrollment e
+  ON c.course_id = e.course_id
+GROUP BY c.course_name
+ORDER BY average_marks DESC;
+     course_name     | students_graded | average_marks | highest | lowest 
+---------------------+-----------------+---------------+---------+--------
+ Machine Learning    |               4 |         83.38 |   91.00 |  73.00
+ Database Management |               6 |         80.75 |   94.00 |  68.00
+ Data Structures     |               4 |         80.75 |   92.00 |  65.00
+ Digital Electronics |               3 |         72.50 |   81.50 |  62.00
+ Thermodynamics      |               3 |         71.17 |   84.00 |  59.00
+ Operating Systems   |               3 |         70.67 |   81.00 |  58.50
+ Signals and Systems |               3 |         67.17 |   77.00 |  55.00
+ Structural Analysis |               2 |         64.75 |   66.00 |  63.50
+(8 rows)
+
+-- ---------------------------------------------------------------------
+-- Screenshot 4 : HAVING
+-- ---------------------------------------------------------------------
+-- Q11. Courses whose average marks are greater than 75
+SELECT c.course_name,
+       ROUND(AVG(e.marks), 2) AS average_marks
+FROM course c
+JOIN enrollment e
+  ON c.course_id = e.course_id
+GROUP BY c.course_name
+HAVING AVG(e.marks) > 75
+ORDER BY average_marks DESC;
+     course_name     | average_marks 
+---------------------+---------------
+ Machine Learning    |         83.38
+ Database Management |         80.75
+ Data Structures     |         80.75
+(3 rows)
+
+-- Q12. Departments having at least 3 second-year students
+--      (WHERE filters rows first, HAVING then filters the groups)
+SELECT d.department_name,
+       COUNT(*) AS second_year_students
+FROM department d
+JOIN student s
+  ON d.department_id = s.department_id
+WHERE s.year_of_study = 2
+GROUP BY d.department_name
+HAVING COUNT(*) >= 3
+ORDER BY second_year_students DESC;
+     department_name     | second_year_students 
+-------------------------+----------------------
+ AI and Machine Learning |                    4
+ Computer Science        |                    3
+(2 rows)
+
+-- ---------------------------------------------------------------------
+-- Screenshot 5 : ROLLUP
+-- ---------------------------------------------------------------------
+-- Display NULLs visibly so the super-aggregate rows are easy to spot
+\pset null '(null)'
+Null display is "(null)".
+-- Q13. Student count by department and year of study, with ROLLUP.
+--      (null) in year_of_study  = subtotal for that department
+--      (null) in both columns   = grand total
+SELECT d.department_name,
+       s.year_of_study,
+       COUNT(*) AS total_students
+FROM student s
+JOIN department d ON s.department_id = d.department_id
+GROUP BY ROLLUP (d.department_name, s.year_of_study)
+ORDER BY d.department_name, s.year_of_study;
+     department_name     | year_of_study | total_students 
+-------------------------+---------------+----------------
+ AI and Machine Learning |             2 |              4
+ AI and Machine Learning |             3 |              1
+ AI and Machine Learning |        (null) |              5
+ Computer Science        |             2 |              3
+ Computer Science        |             3 |              1
+ Computer Science        |        (null) |              4
+ Electronics             |             2 |              2
+ Electronics             |             3 |              1
+ Electronics             |        (null) |              3
+ Mechanical              |             2 |              2
+ Mechanical              |             3 |              1
+ Mechanical              |        (null) |              3
+ (null)                  |        (null) |             15
+(13 rows)
+
+-- Q14. Enrollments and average marks per course, with a subtotal for
+--      every department and one grand total row (labelled using GROUPING()).
+SELECT CASE WHEN GROUPING(d.department_name) = 1 THEN '** GRAND TOTAL **'
+            ELSE d.department_name END                   AS department,
+       CASE WHEN GROUPING(d.department_name) = 1 THEN '-- All Courses --'
+            WHEN GROUPING(c.course_name) = 1     THEN '-- Dept Subtotal --'
+            ELSE c.course_name END                       AS course,
+       COUNT(e.enrollment_id)                            AS enrollments,
+       ROUND(AVG(e.marks), 2)                            AS avg_marks
+FROM enrollment e
+JOIN course c     ON e.course_id = c.course_id
+JOIN department d ON c.department_id = d.department_id
+GROUP BY ROLLUP (d.department_name, c.course_name)
+ORDER BY GROUPING(d.department_name), d.department_name,
+         GROUPING(c.course_name), c.course_name;
+       department        |       course        | enrollments | avg_marks 
+-------------------------+---------------------+-------------+-----------
+ AI and Machine Learning | Database Management |           6 |     80.75
+ AI and Machine Learning | Machine Learning    |           5 |     83.38
+ AI and Machine Learning | -- Dept Subtotal -- |          11 |     81.80
+ Civil                   | Structural Analysis |           2 |     64.75
+ Civil                   | -- Dept Subtotal -- |           2 |     64.75
+ Computer Science        | Data Structures     |           4 |     80.75
+ Computer Science        | Operating Systems   |           3 |     70.67
+ Computer Science        | -- Dept Subtotal -- |           7 |     76.43
+ Electronics             | Digital Electronics |           3 |     72.50
+ Electronics             | Signals and Systems |           3 |     67.17
+ Electronics             | -- Dept Subtotal -- |           6 |     69.83
+ Mechanical              | Thermodynamics      |           3 |     71.17
+ Mechanical              | -- Dept Subtotal -- |           3 |     71.17
+ ** GRAND TOTAL **       | -- All Courses --   |          29 |     75.54
+(14 rows)
+
+-- ---------------------------------------------------------------------
+-- Screenshot 6 : CUBE
+-- ---------------------------------------------------------------------
+-- Q15. Student count for every combination of department and gender,
+--      including department totals, gender totals and a grand total.
+SELECT COALESCE(d.department_name, 'ALL DEPARTMENTS') AS department,
+       CASE WHEN GROUPING(s.gender) = 1 THEN 'ALL'
+            ELSE s.gender END                       AS gender,
+       COUNT(*)                                     AS total_students
+FROM student s
+JOIN department d ON s.department_id = d.department_id
+GROUP BY CUBE (d.department_name, s.gender)
+ORDER BY GROUPING(d.department_name), d.department_name,
+         GROUPING(s.gender), s.gender;
+       department        | gender | total_students 
+-------------------------+--------+----------------
+ AI and Machine Learning | F      |              2
+ AI and Machine Learning | M      |              3
+ AI and Machine Learning | ALL    |              5
+ Computer Science        | F      |              2
+ Computer Science        | M      |              2
+ Computer Science        | ALL    |              4
+ Electronics             | F      |              2
+ Electronics             | M      |              1
+ Electronics             | ALL    |              3
+ Mechanical              | F      |              1
+ Mechanical              | M      |              2
+ Mechanical              | ALL    |              3
+ ALL DEPARTMENTS         | F      |              7
+ ALL DEPARTMENTS         | M      |              8
+ ALL DEPARTMENTS         | ALL    |             15
+(15 rows)
+
