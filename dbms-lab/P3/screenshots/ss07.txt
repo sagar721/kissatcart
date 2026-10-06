@@ -1,0 +1,30 @@
+college_db=# SELECT student_id, student_name, city FROM student ORDER BY student_name ASC;
+ student_id | student_name |  city
+------------+--------------+--------
+          4 | Aman Verma   | Indore
+          5 | Neha Joshi   | Pune
+          3 | Priya Singh  | Nagpur
+          2 | Rahul Sharma | Nashik
+          1 | Sagar Kumar  | Pune
+(5 rows)
+
+college_db=# SELECT student_id, course_code, marks, grade FROM enrollment WHERE course_code = 'CS202' ORDER BY marks DESC;
+ student_id | course_code | marks | grade
+------------+-------------+-------+-------
+          3 | CS202       | 94.00 | O
+          1 | CS202       | 86.00 | A+
+          2 | CS202       | 72.00 | A
+          5 | CS202       | 68.00 | B+
+(4 rows)
+
+college_db=# SELECT student_name, dept_id, dob FROM student ORDER BY dept_id ASC, dob DESC;
+ student_name | dept_id |    dob
+--------------+---------+------------
+ Neha Joshi   |     101 | 2006-06-30
+ Rahul Sharma |     101 | 2006-03-22
+ Priya Singh  |     102 | 2006-11-05
+ Sagar Kumar  |     102 | 2006-08-14
+ Aman Verma   |     103 | 2005-12-19
+(5 rows)
+
+college_db=#

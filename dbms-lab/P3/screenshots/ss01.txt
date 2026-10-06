@@ -1,0 +1,22 @@
+$ psql -U postgres -d college_db
+psql (17.10)
+Type "help" for help.
+
+college_db=# SELECT version();
+                                               version
+------------------------------------------------------------------------------------------------------
+ PostgreSQL 17.10 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit
+(1 row)
+
+college_db=# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | course     | table | postgres
+ public | department | table | postgres
+ public | enrollment | table | postgres
+ public | faculty    | table | postgres
+ public | student    | table | postgres
+(5 rows)
+
+college_db=#

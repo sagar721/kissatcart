@@ -1,0 +1,21 @@
+college_db=# INSERT INTO course (course_code, course_name, credits, semester, dept_id, faculty_id) VALUES
+college_db-# ('CS201', 'Data Structures',             4, 3, 101, 201),
+college_db-# ('CS202', 'Database Management Systems', 4, 3, 101, 201),
+college_db-# ('CS203', 'Operating Systems',           3, 3, 101, 203),
+college_db-# ('AI201', 'Artificial Intelligence',     3, 3, 102, 202);
+INSERT 0 4
+college_db=# INSERT INTO enrollment (enrollment_id, student_id, course_code, enrollment_date, marks, grade) VALUES
+college_db-# (1,  1, 'CS202', '2025-07-21', 86, 'A+'),
+college_db-# (2,  1, 'CS201', '2025-07-21', 78, 'A'),
+college_db-# (3,  1, 'AI201', '2025-07-21', 91, 'O'),
+college_db-# (4,  2, 'CS202', '2025-07-21', 72, 'A'),
+college_db-# (5,  2, 'CS201', '2025-07-21', 65, 'B+'),
+college_db-# (6,  2, 'CS203', '2025-07-22', 58, 'B'),
+college_db-# (7,  3, 'CS202', '2025-07-21', 94, 'O'),
+college_db-# (8,  3, 'AI201', '2025-07-21', 88, 'A+'),
+college_db-# (9,  4, 'CS201', '2025-07-22', 47, 'C'),
+college_db-# (10, 4, 'CS203', '2025-07-22', 62, 'B+'),
+college_db-# (11, 5, 'CS202', '2025-07-21', 68, 'B+'),
+college_db-# (12, 5, 'CS203', '2025-07-22', 81, 'A+');
+INSERT 0 12
+college_db=#

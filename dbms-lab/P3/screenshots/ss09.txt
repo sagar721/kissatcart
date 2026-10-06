@@ -1,0 +1,17 @@
+college_db=# SELECT enrollment_id, student_id, course_code, marks, grade FROM enrollment WHERE student_id = 5 AND course_cod
+e = 'CS202';
+ enrollment_id | student_id | course_code | marks | grade
+---------------+------------+-------------+-------+-------
+            11 |          5 | CS202       | 68.00 | B+
+(1 row)
+
+college_db=# UPDATE enrollment SET marks = 72, grade = 'A' WHERE student_id = 5 AND course_code = 'CS202';
+UPDATE 1
+college_db=# SELECT enrollment_id, student_id, course_code, marks, grade FROM enrollment WHERE student_id = 5 AND course_cod
+e = 'CS202';
+ enrollment_id | student_id | course_code | marks | grade
+---------------+------------+-------------+-------+-------
+            11 |          5 | CS202       | 72.00 | A
+(1 row)
+
+college_db=#

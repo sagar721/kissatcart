@@ -1,0 +1,22 @@
+college_db=# SELECT enrollment_id, student_id, course_code, marks FROM enrollment WHERE student_id = 4;
+ enrollment_id | student_id | course_code | marks
+---------------+------------+-------------+-------
+             9 |          4 | CS201       | 50.00
+            10 |          4 | CS203       | 62.00
+(2 rows)
+
+college_db=# DELETE FROM enrollment WHERE student_id = 4 AND course_code = 'CS203';
+DELETE 1
+college_db=# SELECT enrollment_id, student_id, course_code, marks FROM enrollment WHERE student_id = 4;
+ enrollment_id | student_id | course_code | marks
+---------------+------------+-------------+-------
+             9 |          4 | CS201       | 50.00
+(1 row)
+
+college_db=# SELECT COUNT(*) AS total_enrollments FROM enrollment;
+ total_enrollments
+-------------------
+                11
+(1 row)
+
+college_db=#
