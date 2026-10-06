@@ -1,0 +1,27 @@
+college_db=# SELECT * FROM department;
+ dept_id |        dept_name        |     hod_name     | building
+---------+-------------------------+------------------+----------
+     101 | Computer Science        | Dr. Anil Sharma  | Block A
+     102 | Artificial Intelligence | Dr. Kavita Mehta | Block C
+     103 | Electronics             | Dr. Rajesh Patil | Block B
+(3 rows)
+
+college_db=# SELECT * FROM faculty;
+ faculty_id |   faculty_name   |     designation     |          email           | dept_id
+------------+------------------+---------------------+--------------------------+---------
+        201 | Dr. Anil Sharma  | Professor           | anil.sharma@college.edu  |     101
+        202 | Dr. Kavita Mehta | Associate Professor | kavita.mehta@college.edu |     102
+        203 | Dr. Rajesh Patil | Assistant Professor | rajesh.patil@college.edu |     103
+(3 rows)
+
+college_db=# SELECT * FROM student;
+ student_id |     prn     | student_name | gender |    dob     |          email           |  city  | semester | dept_id
+------------+-------------+--------------+--------+------------+--------------------------+--------+----------+---------
+          1 | SOE25BTAM29 | Sagar Kumar  | M      | 2006-08-14 | sagar.kumar@college.edu  | Pune   |        3 |     102
+          2 | SOE25BTCS07 | Rahul Sharma | M      | 2006-03-22 | rahul.sharma@college.edu | Nashik |        3 |     101
+          3 | SOE25BTAM41 | Priya Singh  | F      | 2006-11-05 | priya.singh@college.edu  | Nagpur |        3 |     102
+          4 | SOE25BTEC15 | Aman Verma   | M      | 2005-12-19 | aman.verma@college.edu   | Indore |        3 |     103
+          5 | SOE25BTCS33 | Neha Joshi   | F      | 2006-06-30 | neha.joshi@college.edu   | Pune   |        3 |     101
+(5 rows)
+
+college_db=#

@@ -1,0 +1,37 @@
+college_db=# SELECT student_id, prn, student_name, city FROM student WHERE dept_id = 102;
+ student_id |     prn     | student_name |  city
+------------+-------------+--------------+--------
+          1 | SOE25BTAM29 | Sagar Kumar  | Pune
+          3 | SOE25BTAM41 | Priya Singh  | Nagpur
+(2 rows)
+
+college_db=# SELECT enrollment_id, student_id, course_code, marks, grade FROM enrollment WHERE marks >= 85;
+ enrollment_id | student_id | course_code | marks | grade
+---------------+------------+-------------+-------+-------
+             1 |          1 | CS202       | 86.00 | A+
+             3 |          1 | AI201       | 91.00 | O
+             7 |          3 | CS202       | 94.00 | O
+             8 |          3 | AI201       | 88.00 | A+
+(4 rows)
+
+college_db=# SELECT course_code, course_name, credits FROM course WHERE course_name LIKE '%Systems';
+ course_code |         course_name         | credits
+-------------+-----------------------------+---------
+ CS202       | Database Management Systems |       4
+ CS203       | Operating Systems           |       3
+(2 rows)
+
+college_db=# SELECT student_id, course_code, marks FROM enrollment WHERE marks BETWEEN 60 AND 75 AND course_code <> 'CS202';
+ student_id | course_code | marks
+------------+-------------+-------
+          2 | CS201       | 65.00
+          4 | CS203       | 62.00
+(2 rows)
+
+college_db=# SELECT student_name, city FROM student WHERE city = 'Pune' AND gender = 'F';
+ student_name | city
+--------------+------
+ Neha Joshi   | Pune
+(1 row)
+
+college_db=#

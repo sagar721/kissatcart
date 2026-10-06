@@ -1,0 +1,21 @@
+college_db=# DELETE FROM student WHERE student_id = 4;
+ERROR:  update or delete on table "student" violates foreign key constraint "enrollment_student_id_fkey" on table "enrollmen
+t"
+DETAIL:  Key (student_id)=(4) is still referenced from table "enrollment".
+college_db=# SELECT * FROM enrollment ORDER BY enrollment_id;
+ enrollment_id | student_id | course_code | enrollment_date | marks | grade
+---------------+------------+-------------+-----------------+-------+-------
+             1 |          1 | CS202       | 2025-07-21      | 86.00 | A+
+             2 |          1 | CS201       | 2025-07-21      | 78.00 | A
+             3 |          1 | AI201       | 2025-07-21      | 91.00 | O
+             4 |          2 | CS202       | 2025-07-21      | 72.00 | A
+             5 |          2 | CS201       | 2025-07-21      | 65.00 | B+
+             6 |          2 | CS203       | 2025-07-22      | 58.00 | B
+             7 |          3 | CS202       | 2025-07-21      | 94.00 | O
+             8 |          3 | AI201       | 2025-07-21      | 88.00 | A+
+             9 |          4 | CS201       | 2025-07-22      | 50.00 | B
+            11 |          5 | CS202       | 2025-07-21      | 72.00 | A
+            12 |          5 | CS203       | 2025-07-22      | 81.00 | A+
+(11 rows)
+
+college_db=#

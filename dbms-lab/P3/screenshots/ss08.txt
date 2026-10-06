@@ -1,0 +1,23 @@
+college_db=# SELECT enrollment_id, student_id, course_code, marks FROM enrollment ORDER BY marks DESC LIMIT 3;
+ enrollment_id | student_id | course_code | marks
+---------------+------------+-------------+-------
+             7 |          3 | CS202       | 94.00
+             3 |          1 | AI201       | 91.00
+             8 |          3 | AI201       | 88.00
+(3 rows)
+
+college_db=# SELECT enrollment_id, student_id, course_code, marks FROM enrollment ORDER BY marks DESC LIMIT 3 OFFSET 3;
+ enrollment_id | student_id | course_code | marks
+---------------+------------+-------------+-------
+             1 |          1 | CS202       | 86.00
+            12 |          5 | CS203       | 81.00
+             2 |          1 | CS201       | 78.00
+(3 rows)
+
+college_db=# SELECT student_name, dob FROM student ORDER BY dob ASC LIMIT 1;
+ student_name |    dob
+--------------+------------
+ Aman Verma   | 2005-12-19
+(1 row)
+
+college_db=#

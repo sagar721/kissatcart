@@ -1,0 +1,20 @@
+college_db=# UPDATE enrollment SET marks = marks + 3, grade = 'B' WHERE course_code = 'CS201' AND marks < 50;
+UPDATE 1
+college_db=# SELECT enrollment_id, student_id, course_code, marks, grade FROM enrollment WHERE course_code = 'CS201' ORDER B
+Y student_id;
+ enrollment_id | student_id | course_code | marks | grade
+---------------+------------+-------------+-------+-------
+             2 |          1 | CS201       | 78.00 | A
+             5 |          2 | CS201       | 65.00 | B+
+             9 |          4 | CS201       | 50.00 | B
+(3 rows)
+
+college_db=# UPDATE student SET city = 'Mumbai' WHERE prn = 'SOE25BTCS07';
+UPDATE 1
+college_db=# SELECT student_id, prn, student_name, city FROM student WHERE prn = 'SOE25BTCS07';
+ student_id |     prn     | student_name |  city
+------------+-------------+--------------+--------
+          2 | SOE25BTCS07 | Rahul Sharma | Mumbai
+(1 row)
+
+college_db=#

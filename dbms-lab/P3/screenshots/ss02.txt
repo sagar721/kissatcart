@@ -1,0 +1,18 @@
+college_db=# INSERT INTO department (dept_id, dept_name, hod_name, building) VALUES
+college_db-# (101, 'Computer Science',        'Dr. Anil Sharma',  'Block A'),
+college_db-# (102, 'Artificial Intelligence', 'Dr. Kavita Mehta', 'Block C'),
+college_db-# (103, 'Electronics',             'Dr. Rajesh Patil', 'Block B');
+INSERT 0 3
+college_db=# INSERT INTO faculty (faculty_id, faculty_name, designation, email, dept_id) VALUES
+college_db-# (201, 'Dr. Anil Sharma',  'Professor',           'anil.sharma@college.edu',  101),
+college_db-# (202, 'Dr. Kavita Mehta', 'Associate Professor', 'kavita.mehta@college.edu', 102),
+college_db-# (203, 'Dr. Rajesh Patil', 'Assistant Professor', 'rajesh.patil@college.edu', 103);
+INSERT 0 3
+college_db=# INSERT INTO student (student_id, prn, student_name, gender, dob, email, city, semester, dept_id) VALUES
+college_db-# (1, 'SOE25BTAM29', 'Sagar Kumar',  'M', '2006-08-14', 'sagar.kumar@college.edu',  'Pune',   3, 102),
+college_db-# (2, 'SOE25BTCS07', 'Rahul Sharma', 'M', '2006-03-22', 'rahul.sharma@college.edu', 'Nashik', 3, 101),
+college_db-# (3, 'SOE25BTAM41', 'Priya Singh',  'F', '2006-11-05', 'priya.singh@college.edu',  'Nagpur', 3, 102),
+college_db-# (4, 'SOE25BTEC15', 'Aman Verma',   'M', '2005-12-19', 'aman.verma@college.edu',   'Indore', 3, 103),
+college_db-# (5, 'SOE25BTCS33', 'Neha Joshi',   'F', '2006-06-30', 'neha.joshi@college.edu',   'Pune',   3, 101);
+INSERT 0 5
+college_db=#
