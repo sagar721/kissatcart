@@ -1,0 +1,9 @@
+       department_name        | total_students | enrollments | avg_marks 
+------------------------------+----------------+-------------+-----------
+ Artificial Intelligence & ML |              3 |           6 |     88.17
+ Computer Science             |              3 |           5 |     76.60
+ Electronics & Telecom        |              1 |           1 |     70.00
+ Mechanical Engineering       |              1 |           1 |     63.00
+ Civil Engineering            |              0 |           0 |    (null)
+(5 rows)
+

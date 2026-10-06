@@ -1,0 +1,89 @@
+                         Table "public.department"
+      Column      |         Type          | Collation | Nullable | Default 
+------------------+-----------------------+-----------+----------+---------
+ department_id    | integer               |           | not null | 
+ department_name  | character varying(60) |           | not null | 
+ building         | character varying(30) |           |          | 
+ established_year | integer               |           |          | 
+Indexes:
+    "department_pkey" PRIMARY KEY, btree (department_id)
+    "department_department_name_key" UNIQUE CONSTRAINT, btree (department_name)
+Referenced by:
+    TABLE "course" CONSTRAINT "course_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+    TABLE "faculty" CONSTRAINT "faculty_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+    TABLE "student" CONSTRAINT "student_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+
+                         Table "public.faculty"
+    Column     |         Type          | Collation | Nullable | Default 
+---------------+-----------------------+-----------+----------+---------
+ faculty_id    | integer               |           | not null | 
+ faculty_name  | character varying(50) |           | not null | 
+ designation   | character varying(30) |           |          | 
+ email         | character varying(60) |           |          | 
+ salary        | numeric(10,2)         |           |          | 
+ department_id | integer               |           |          | 
+Indexes:
+    "faculty_pkey" PRIMARY KEY, btree (faculty_id)
+    "faculty_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "faculty_salary_check" CHECK (salary > 0::numeric)
+Foreign-key constraints:
+    "faculty_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+Referenced by:
+    TABLE "course" CONSTRAINT "course_faculty_id_fkey" FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id)
+
+                         Table "public.student"
+     Column     |         Type          | Collation | Nullable | Default 
+----------------+-----------------------+-----------+----------+---------
+ student_id     | integer               |           | not null | 
+ student_name   | character varying(50) |           | not null | 
+ gender         | character(1)          |           |          | 
+ city           | character varying(30) |           |          | 
+ admission_year | integer               |           |          | 
+ department_id  | integer               |           |          | 
+Indexes:
+    "student_pkey" PRIMARY KEY, btree (student_id)
+Check constraints:
+    "student_gender_check" CHECK (gender = ANY (ARRAY['M'::bpchar, 'F'::bpchar]))
+Foreign-key constraints:
+    "student_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+Referenced by:
+    TABLE "enrollment" CONSTRAINT "enrollment_student_id_fkey" FOREIGN KEY (student_id) REFERENCES student(student_id)
+
+                         Table "public.course"
+    Column     |         Type          | Collation | Nullable | Default 
+---------------+-----------------------+-----------+----------+---------
+ course_id     | integer               |           | not null | 
+ course_code   | character varying(15) |           | not null | 
+ course_name   | character varying(60) |           | not null | 
+ credits       | integer               |           |          | 
+ department_id | integer               |           |          | 
+ faculty_id    | integer               |           |          | 
+Indexes:
+    "course_pkey" PRIMARY KEY, btree (course_id)
+    "course_course_code_key" UNIQUE CONSTRAINT, btree (course_code)
+Check constraints:
+    "course_credits_check" CHECK (credits >= 1 AND credits <= 5)
+Foreign-key constraints:
+    "course_department_id_fkey" FOREIGN KEY (department_id) REFERENCES department(department_id)
+    "course_faculty_id_fkey" FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id)
+Referenced by:
+    TABLE "enrollment" CONSTRAINT "enrollment_course_id_fkey" FOREIGN KEY (course_id) REFERENCES course(course_id)
+
+                       Table "public.enrollment"
+    Column     |         Type         | Collation | Nullable | Default 
+---------------+----------------------+-----------+----------+---------
+ enrollment_id | integer              |           | not null | 
+ student_id    | integer              |           | not null | 
+ course_id     | integer              |           | not null | 
+ semester      | character varying(5) |           |          | 
+ marks         | integer              |           |          | 
+Indexes:
+    "enrollment_pkey" PRIMARY KEY, btree (enrollment_id)
+    "enrollment_student_id_course_id_key" UNIQUE CONSTRAINT, btree (student_id, course_id)
+Check constraints:
+    "enrollment_marks_check" CHECK (marks >= 0 AND marks <= 100)
+Foreign-key constraints:
+    "enrollment_course_id_fkey" FOREIGN KEY (course_id) REFERENCES course(course_id)
+    "enrollment_student_id_fkey" FOREIGN KEY (student_id) REFERENCES student(student_id)
+

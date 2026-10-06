@@ -1,0 +1,12 @@
+    faculty_name    |     designation     |       department_name        
+--------------------+---------------------+------------------------------
+ Dr. Anita Deshmukh | Professor           | Artificial Intelligence & ML
+ Prof. Rahul Mehta  | Assistant Professor | Artificial Intelligence & ML
+ Prof. Kavita Rao   | Associate Professor | Artificial Intelligence & ML
+ Dr. Sneha Kulkarni | Associate Professor | Computer Science
+ Prof. Vikram Joshi | Assistant Professor | Computer Science
+ Dr. Priya Nair     | Professor           | Electronics & Telecom
+ Prof. Amit Patil   | Assistant Professor | Mechanical Engineering
+ (null)             | (null)              | Civil Engineering
+(8 rows)
+

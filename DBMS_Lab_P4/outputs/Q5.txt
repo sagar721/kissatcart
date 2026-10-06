@@ -1,0 +1,8 @@
+     faculty_1      |     faculty_2      |       department_name        
+--------------------+--------------------+------------------------------
+ Dr. Anita Deshmukh | Prof. Rahul Mehta  | Artificial Intelligence & ML
+ Dr. Anita Deshmukh | Prof. Kavita Rao   | Artificial Intelligence & ML
+ Prof. Rahul Mehta  | Prof. Kavita Rao   | Artificial Intelligence & ML
+ Dr. Sneha Kulkarni | Prof. Vikram Joshi | Computer Science
+(4 rows)
+

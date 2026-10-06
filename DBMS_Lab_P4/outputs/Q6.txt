@@ -1,0 +1,13 @@
+ student_name | course_code  |   course_name    
+--------------+--------------+------------------
+ Aarav Sharma | U25AMILPC307 | DBMS Lab
+ Aarav Sharma | U25AMPC301   | Machine Learning
+ Aarav Sharma | U25AMPE304   | Deep Learning
+ Diya Patel   | U25AMILPC307 | DBMS Lab
+ Diya Patel   | U25AMPC301   | Machine Learning
+ Diya Patel   | U25AMPE304   | Deep Learning
+ Meera Iyer   | U25AMILPC307 | DBMS Lab
+ Meera Iyer   | U25AMPC301   | Machine Learning
+ Meera Iyer   | U25AMPE304   | Deep Learning
+(9 rows)
+

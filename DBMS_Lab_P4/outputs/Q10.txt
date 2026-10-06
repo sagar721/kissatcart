@@ -1,0 +1,8 @@
+ student_name |       department_name        |   course_name    |    faculty_name    | marks 
+--------------+------------------------------+------------------+--------------------+-------
+ Meera Iyer   | Artificial Intelligence & ML | DBMS Lab         | Prof. Rahul Mehta  |    95
+ Diya Patel   | Artificial Intelligence & ML | DBMS Lab         | Prof. Rahul Mehta  |    92
+ Aarav Sharma | Artificial Intelligence & ML | DBMS Lab         | Prof. Rahul Mehta  |    88
+ Diya Patel   | Artificial Intelligence & ML | Machine Learning | Dr. Anita Deshmukh |    85
+(4 rows)
+

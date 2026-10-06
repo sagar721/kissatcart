@@ -1,0 +1,5 @@
+ students | courses | cross_join_rows 
+----------+---------+-----------------
+       10 |       7 |              70
+(1 row)
+

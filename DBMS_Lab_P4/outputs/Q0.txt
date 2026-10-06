@@ -1,0 +1,5 @@
+                                               version                                                | current_database 
+------------------------------------------------------------------------------------------------------+------------------
+ PostgreSQL 17.10 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit | college_db
+(1 row)
+

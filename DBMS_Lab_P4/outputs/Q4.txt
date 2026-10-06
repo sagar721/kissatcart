@@ -1,0 +1,12 @@
+ course_code  |     course_name     |    faculty_name    
+--------------+---------------------+--------------------
+ U25AMILPC307 | DBMS Lab            | Prof. Rahul Mehta
+ U25AMPC301   | Machine Learning    | Dr. Anita Deshmukh
+ U25CSPC302   | Data Structures     | Dr. Sneha Kulkarni
+ U25CSPC303   | Operating Systems   | Prof. Vikram Joshi
+ U25ETPC301   | Digital Electronics | Dr. Priya Nair
+ U25AMPE304   | Deep Learning       | (null)
+ U25MEPC301   | Thermodynamics      | Prof. Amit Patil
+ (null)       | (null)              | Prof. Kavita Rao
+(8 rows)
+

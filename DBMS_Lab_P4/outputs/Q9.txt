@@ -1,0 +1,17 @@
+ student_name |     course_name     |    faculty_name    | marks 
+--------------+---------------------+--------------------+-------
+ Aarav Sharma | DBMS Lab            | Prof. Rahul Mehta  |    88
+ Aarav Sharma | Machine Learning    | Dr. Anita Deshmukh |    79
+ Diya Patel   | DBMS Lab            | Prof. Rahul Mehta  |    92
+ Diya Patel   | Machine Learning    | Dr. Anita Deshmukh |    85
+ Rohan Verma  | Data Structures     | Dr. Sneha Kulkarni |    74
+ Rohan Verma  | Operating Systems   | Prof. Vikram Joshi |    67
+ Ishita Gupta | Data Structures     | Dr. Sneha Kulkarni |    81
+ Kabir Singh  | Digital Electronics | Dr. Priya Nair     |    70
+ Meera Iyer   | DBMS Lab            | Prof. Rahul Mehta  |    95
+ Meera Iyer   | Deep Learning       | Not Assigned       |    90
+ Arjun Reddy  | Thermodynamics      | Prof. Amit Patil   |    63
+ Sana Khan    | DBMS Lab            | Prof. Rahul Mehta  |    84
+ Sana Khan    | Operating Systems   | Prof. Vikram Joshi |    77
+(13 rows)
+

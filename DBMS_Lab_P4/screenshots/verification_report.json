@@ -1,0 +1,132 @@
+[
+ {
+  "id": "Q0",
+  "file": "Q0.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 1,
+  "sha256": "e608fec238f1ae01a75c98c31b00065935e7c73bbbc2e81bb2ffd0c8679052db",
+  "pgadmin_status": "Total rows: 1 Query complete 00:00:00.056 LF Ln 2, Col 38",
+  "captured_at": "2026-10-06T10:55:44.222Z"
+ },
+ {
+  "id": "Q1",
+  "file": "Q1.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 8,
+  "sha256": "f2c5559796ce41dfc583a834f31be2c419d919522d2a02c6bd89f619e248e211",
+  "pgadmin_status": "Total rows: 8 Query complete 00:00:00.096 LF Ln 6, Col 23",
+  "captured_at": "2026-10-06T10:55:48.988Z"
+ },
+ {
+  "id": "Q2",
+  "file": "Q2.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 10,
+  "sha256": "1087a8683740ca48aec18664f34c0b90f814498db6797f7d15f9a8e28eaf5860",
+  "pgadmin_status": "Total rows: 10 Query complete 00:00:00.088 LF Ln 6, Col 23",
+  "captured_at": "2026-10-06T10:55:53.724Z"
+ },
+ {
+  "id": "Q3",
+  "file": "Q3.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 8,
+  "sha256": "05495df8f9cc7e0d6f54a9f57a7bb762e2e5ae93c297f0904a225568543e1229",
+  "pgadmin_status": "Total rows: 8 Query complete 00:00:00.078 LF Ln 6, Col 40",
+  "captured_at": "2026-10-06T10:55:58.442Z"
+ },
+ {
+  "id": "Q4",
+  "file": "Q4.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 8,
+  "sha256": "84a9f11ffaa9438957025ef18a53577b5f20bf97e84804c413aa7e6df43a8af0",
+  "pgadmin_status": "Total rows: 8 Query complete 00:00:00.074 LF Ln 6, Col 36",
+  "captured_at": "2026-10-06T10:56:03.118Z"
+ },
+ {
+  "id": "Q5",
+  "file": "Q5.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 4,
+  "sha256": "371bcdfcc150bbce604301baa6f6c298da69e8f0cfaf199b277df1a31c0e12fd",
+  "pgadmin_status": "Total rows: 4 Query complete 00:00:00.102 LF Ln 11, Col 58",
+  "captured_at": "2026-10-06T10:56:07.857Z"
+ },
+ {
+  "id": "Q6",
+  "file": "Q6.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 9,
+  "sha256": "adb3085318e300f7c055f9854fd330ba043d11e711247efceab722b1812adad3",
+  "pgadmin_status": "Total rows: 9 Query complete 00:00:00.068 LF Ln 7, Col 36",
+  "captured_at": "2026-10-06T10:56:12.537Z"
+ },
+ {
+  "id": "Q7",
+  "file": "Q7.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 1,
+  "sha256": "8ac7d61ae762422170a904eb074a9d5f8081b5936c5c23f25121bcba15738546",
+  "pgadmin_status": "Total rows: 1 Query complete 00:00:00.089 LF Ln 5, Col 32",
+  "captured_at": "2026-10-06T10:56:17.187Z"
+ },
+ {
+  "id": "Q8",
+  "file": "Q8.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 13,
+  "sha256": "142b79c9d1c9fab54c94861ef74d02c2d02b5c5f6d913cccd706b1a2b7461ed0",
+  "pgadmin_status": "Total rows: 13 Query complete 00:00:00.066 LF Ln 6, Col 36",
+  "captured_at": "2026-10-06T10:56:21.835Z"
+ },
+ {
+  "id": "Q9",
+  "file": "Q9.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 13,
+  "sha256": "8df6794cd3a98f08472c6d3902f1630d556aafea429706c0133f0deb37094891",
+  "pgadmin_status": "Total rows: 13 Query complete 00:00:00.072 LF Ln 9, Col 36",
+  "captured_at": "2026-10-06T10:56:26.778Z"
+ },
+ {
+  "id": "Q10",
+  "file": "Q10.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 4,
+  "sha256": "45d3e360cbfacc0f57e1ee270d190e77d2203713c7b1148f1506f2cb6527eea1",
+  "pgadmin_status": "Total rows: 4 Query complete 00:00:00.078 LF Ln 10, Col 23",
+  "captured_at": "2026-10-06T10:56:32.023Z"
+ },
+ {
+  "id": "Q11",
+  "file": "Q11.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 2,
+  "sha256": "32a416dd02279b49b58426979f4dc7444deb722196abfdfdedd12d3aa6cb7211",
+  "pgadmin_status": "Total rows: 2 Query complete 00:00:00.093 LF Ln 6, Col 23",
+  "captured_at": "2026-10-06T10:56:36.623Z"
+ },
+ {
+  "id": "Q12",
+  "file": "Q12.png",
+  "editor_matches_sql": true,
+  "grid_matches_psql": true,
+  "rows": 5,
+  "sha256": "62f7ed666bc9b206eee809270484c48ba0e5058c27d0ba39d93e8272743df660",
+  "pgadmin_status": "Total rows: 5 Query complete 00:00:00.081 LF Ln 10, Col 26",
+  "captured_at": "2026-10-06T10:56:41.600Z"
+ }
+]

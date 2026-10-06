@@ -1,0 +1,17 @@
+ student_name |     course_name     | marks 
+--------------+---------------------+-------
+ Aarav Sharma | DBMS Lab            |    88
+ Aarav Sharma | Machine Learning    |    79
+ Diya Patel   | DBMS Lab            |    92
+ Diya Patel   | Machine Learning    |    85
+ Rohan Verma  | Data Structures     |    74
+ Rohan Verma  | Operating Systems   |    67
+ Ishita Gupta | Data Structures     |    81
+ Kabir Singh  | Digital Electronics |    70
+ Meera Iyer   | DBMS Lab            |    95
+ Meera Iyer   | Deep Learning       |    90
+ Arjun Reddy  | Thermodynamics      |    63
+ Sana Khan    | DBMS Lab            |    84
+ Sana Khan    | Operating Systems   |    77
+(13 rows)
+

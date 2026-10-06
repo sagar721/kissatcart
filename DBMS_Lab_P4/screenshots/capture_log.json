@@ -1,0 +1,587 @@
+[
+ {
+  "id": "Q0",
+  "file": "Q0.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 1 Query complete 00:00:00.056 LF Ln 2, Col 38",
+  "grid": [
+   [
+    "PostgreSQL 17.10 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit",
+    "college_db"
+   ]
+  ],
+  "editor_text": "-- Q0. Verify PostgreSQL server version and current database\nSELECT version(), current_database();",
+  "captured_at": "2026-10-06T10:55:44.222Z"
+ },
+ {
+  "id": "Q1",
+  "file": "Q1.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 8 Query complete 00:00:00.096 LF Ln 6, Col 23",
+  "grid": [
+   [
+    "1",
+    "Aarav Sharma",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "2",
+    "Diya Patel",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "3",
+    "Rohan Verma",
+    "Computer Science"
+   ],
+   [
+    "4",
+    "Ishita Gupta",
+    "Computer Science"
+   ],
+   [
+    "5",
+    "Kabir Singh",
+    "Electronics & Telecom"
+   ],
+   [
+    "6",
+    "Meera Iyer",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "7",
+    "Arjun Reddy",
+    "Mechanical Engineering"
+   ],
+   [
+    "8",
+    "Sana Khan",
+    "Computer Science"
+   ]
+  ],
+  "editor_text": "-- Q1. INNER JOIN : students with their department\nSELECT s.student_id, s.student_name, d.department_name\nFROM student s\nINNER JOIN department d\nON s.department_id = d.department_id\nORDER BY s.student_id;",
+  "captured_at": "2026-10-06T10:55:48.988Z"
+ },
+ {
+  "id": "Q2",
+  "file": "Q2.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 10 Query complete 00:00:00.088 LF Ln 6, Col 23",
+  "grid": [
+   [
+    "1",
+    "Aarav Sharma",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "2",
+    "Diya Patel",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "3",
+    "Rohan Verma",
+    "Computer Science"
+   ],
+   [
+    "4",
+    "Ishita Gupta",
+    "Computer Science"
+   ],
+   [
+    "5",
+    "Kabir Singh",
+    "Electronics & Telecom"
+   ],
+   [
+    "6",
+    "Meera Iyer",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "7",
+    "Arjun Reddy",
+    "Mechanical Engineering"
+   ],
+   [
+    "8",
+    "Sana Khan",
+    "Computer Science"
+   ],
+   [
+    "9",
+    "Neha Joshi",
+    "[null]"
+   ],
+   [
+    "10",
+    "Yash Kulkarni",
+    "[null]"
+   ]
+  ],
+  "editor_text": "-- Q2. LEFT OUTER JOIN : all students, department if allotted\nSELECT s.student_id, s.student_name, d.department_name\nFROM student s\nLEFT OUTER JOIN department d\nON s.department_id = d.department_id\nORDER BY s.student_id;",
+  "captured_at": "2026-10-06T10:55:53.724Z"
+ },
+ {
+  "id": "Q3",
+  "file": "Q3.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 8 Query complete 00:00:00.078 LF Ln 6, Col 40",
+  "grid": [
+   [
+    "Dr. Anita Deshmukh",
+    "Professor",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Prof. Rahul Mehta",
+    "Assistant Professor",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Prof. Kavita Rao",
+    "Associate Professor",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Dr. Sneha Kulkarni",
+    "Associate Professor",
+    "Computer Science"
+   ],
+   [
+    "Prof. Vikram Joshi",
+    "Assistant Professor",
+    "Computer Science"
+   ],
+   [
+    "Dr. Priya Nair",
+    "Professor",
+    "Electronics & Telecom"
+   ],
+   [
+    "Prof. Amit Patil",
+    "Assistant Professor",
+    "Mechanical Engineering"
+   ],
+   [
+    "[null]",
+    "[null]",
+    "Civil Engineering"
+   ]
+  ],
+  "editor_text": "-- Q3. RIGHT OUTER JOIN : all departments, with faculty if any\nSELECT f.faculty_name, f.designation, d.department_name\nFROM faculty f\nRIGHT OUTER JOIN department d\nON f.department_id = d.department_id\nORDER BY d.department_id, f.faculty_id;",
+  "captured_at": "2026-10-06T10:55:58.442Z"
+ },
+ {
+  "id": "Q4",
+  "file": "Q4.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 8 Query complete 00:00:00.074 LF Ln 6, Col 36",
+  "grid": [
+   [
+    "U25AMILPC307",
+    "DBMS Lab",
+    "Prof. Rahul Mehta"
+   ],
+   [
+    "U25AMPC301",
+    "Machine Learning",
+    "Dr. Anita Deshmukh"
+   ],
+   [
+    "U25CSPC302",
+    "Data Structures",
+    "Dr. Sneha Kulkarni"
+   ],
+   [
+    "U25CSPC303",
+    "Operating Systems",
+    "Prof. Vikram Joshi"
+   ],
+   [
+    "U25ETPC301",
+    "Digital Electronics",
+    "Dr. Priya Nair"
+   ],
+   [
+    "U25AMPE304",
+    "Deep Learning",
+    "[null]"
+   ],
+   [
+    "U25MEPC301",
+    "Thermodynamics",
+    "Prof. Amit Patil"
+   ],
+   [
+    "[null]",
+    "[null]",
+    "Prof. Kavita Rao"
+   ]
+  ],
+  "editor_text": "-- Q4. FULL OUTER JOIN : courses and faculty, matched or not\nSELECT c.course_code, c.course_name, f.faculty_name\nFROM course c\nFULL OUTER JOIN faculty f\nON c.faculty_id = f.faculty_id\nORDER BY c.course_id, f.faculty_id;",
+  "captured_at": "2026-10-06T10:56:03.118Z"
+ },
+ {
+  "id": "Q5",
+  "file": "Q5.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 4 Query complete 00:00:00.102 LF Ln 11, Col 58",
+  "grid": [
+   [
+    "Dr. Anita Deshmukh",
+    "Prof. Rahul Mehta",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Dr. Anita Deshmukh",
+    "Prof. Kavita Rao",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Prof. Rahul Mehta",
+    "Prof. Kavita Rao",
+    "Artificial Intelligence & ML"
+   ],
+   [
+    "Dr. Sneha Kulkarni",
+    "Prof. Vikram Joshi",
+    "Computer Science"
+   ]
+  ],
+  "editor_text": "-- Q5. SELF JOIN : pairs of faculty in the same department\nSELECT f1.faculty_name AS faculty_1,\n       f2.faculty_name AS faculty_2,\n       d.department_name\nFROM faculty f1\nINNER JOIN faculty f2\nON  f1.department_id = f2.department_id\nAND f1.faculty_id < f2.faculty_id\nINNER JOIN department d\nON  f1.department_id = d.department_id\nORDER BY d.department_name, f1.faculty_id, f2.faculty_id;",
+  "captured_at": "2026-10-06T10:56:07.857Z"
+ },
+ {
+  "id": "Q6",
+  "file": "Q6.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 9 Query complete 00:00:00.068 LF Ln 7, Col 36",
+  "grid": [
+   [
+    "Aarav Sharma",
+    "U25AMILPC307",
+    "DBMS Lab"
+   ],
+   [
+    "Aarav Sharma",
+    "U25AMPC301",
+    "Machine Learning"
+   ],
+   [
+    "Aarav Sharma",
+    "U25AMPE304",
+    "Deep Learning"
+   ],
+   [
+    "Diya Patel",
+    "U25AMILPC307",
+    "DBMS Lab"
+   ],
+   [
+    "Diya Patel",
+    "U25AMPC301",
+    "Machine Learning"
+   ],
+   [
+    "Diya Patel",
+    "U25AMPE304",
+    "Deep Learning"
+   ],
+   [
+    "Meera Iyer",
+    "U25AMILPC307",
+    "DBMS Lab"
+   ],
+   [
+    "Meera Iyer",
+    "U25AMPC301",
+    "Machine Learning"
+   ],
+   [
+    "Meera Iyer",
+    "U25AMPE304",
+    "Deep Learning"
+   ]
+  ],
+  "editor_text": "-- Q6. CROSS JOIN : every AI&ML student paired with every AI&ML course\nSELECT s.student_name, c.course_code, c.course_name\nFROM student s\nCROSS JOIN course c\nWHERE s.department_id = 10\nAND   c.department_id = 10\nORDER BY s.student_id, c.course_id;",
+  "captured_at": "2026-10-06T10:56:12.537Z"
+ },
+ {
+  "id": "Q7",
+  "file": "Q7.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 1 Query complete 00:00:00.089 LF Ln 5, Col 32",
+  "grid": [
+   [
+    "10",
+    "7",
+    "70"
+   ]
+  ],
+  "editor_text": "-- Q7. CROSS JOIN size = rows(student) x rows(course)\nSELECT (SELECT COUNT(*) FROM student) AS students,\n       (SELECT COUNT(*) FROM course)  AS courses,\n       COUNT(*)                       AS cross_join_rows\nFROM student CROSS JOIN course;",
+  "captured_at": "2026-10-06T10:56:17.187Z"
+ },
+ {
+  "id": "Q8",
+  "file": "Q8.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 13 Query complete 00:00:00.066 LF Ln 6, Col 36",
+  "grid": [
+   [
+    "Aarav Sharma",
+    "DBMS Lab",
+    "88"
+   ],
+   [
+    "Aarav Sharma",
+    "Machine Learning",
+    "79"
+   ],
+   [
+    "Diya Patel",
+    "DBMS Lab",
+    "92"
+   ],
+   [
+    "Diya Patel",
+    "Machine Learning",
+    "85"
+   ],
+   [
+    "Rohan Verma",
+    "Data Structures",
+    "74"
+   ],
+   [
+    "Rohan Verma",
+    "Operating Systems",
+    "67"
+   ],
+   [
+    "Ishita Gupta",
+    "Data Structures",
+    "81"
+   ],
+   [
+    "Kabir Singh",
+    "Digital Electronics",
+    "70"
+   ],
+   [
+    "Meera Iyer",
+    "DBMS Lab",
+    "95"
+   ],
+   [
+    "Meera Iyer",
+    "Deep Learning",
+    "90"
+   ],
+   [
+    "Arjun Reddy",
+    "Thermodynamics",
+    "63"
+   ],
+   [
+    "Sana Khan",
+    "DBMS Lab",
+    "84"
+   ],
+   [
+    "Sana Khan",
+    "Operating Systems",
+    "77"
+   ]
+  ],
+  "editor_text": "-- Q8. 3-table JOIN : student -> enrollment -> course\nSELECT s.student_name, c.course_name, e.marks\nFROM student s\nINNER JOIN enrollment e ON s.student_id = e.student_id\nINNER JOIN course c     ON e.course_id  = c.course_id\nORDER BY s.student_id, c.course_id;",
+  "captured_at": "2026-10-06T10:56:21.835Z"
+ },
+ {
+  "id": "Q9",
+  "file": "Q9.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 13 Query complete 00:00:00.072 LF Ln 9, Col 36",
+  "grid": [
+   [
+    "Aarav Sharma",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "88"
+   ],
+   [
+    "Aarav Sharma",
+    "Machine Learning",
+    "Dr. Anita Deshmukh",
+    "79"
+   ],
+   [
+    "Diya Patel",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "92"
+   ],
+   [
+    "Diya Patel",
+    "Machine Learning",
+    "Dr. Anita Deshmukh",
+    "85"
+   ],
+   [
+    "Rohan Verma",
+    "Data Structures",
+    "Dr. Sneha Kulkarni",
+    "74"
+   ],
+   [
+    "Rohan Verma",
+    "Operating Systems",
+    "Prof. Vikram Joshi",
+    "67"
+   ],
+   [
+    "Ishita Gupta",
+    "Data Structures",
+    "Dr. Sneha Kulkarni",
+    "81"
+   ],
+   [
+    "Kabir Singh",
+    "Digital Electronics",
+    "Dr. Priya Nair",
+    "70"
+   ],
+   [
+    "Meera Iyer",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "95"
+   ],
+   [
+    "Meera Iyer",
+    "Deep Learning",
+    "Not Assigned",
+    "90"
+   ],
+   [
+    "Arjun Reddy",
+    "Thermodynamics",
+    "Prof. Amit Patil",
+    "63"
+   ],
+   [
+    "Sana Khan",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "84"
+   ],
+   [
+    "Sana Khan",
+    "Operating Systems",
+    "Prof. Vikram Joshi",
+    "77"
+   ]
+  ],
+  "editor_text": "-- Q9. 4-table JOIN : student -> enrollment -> course -> faculty\nSELECT s.student_name, c.course_name,\n       COALESCE(f.faculty_name, 'Not Assigned') AS faculty_name,\n       e.marks\nFROM student s\nINNER JOIN enrollment e ON s.student_id = e.student_id\nINNER JOIN course c     ON e.course_id  = c.course_id\nLEFT  JOIN faculty f    ON c.faculty_id = f.faculty_id\nORDER BY s.student_id, c.course_id;",
+  "captured_at": "2026-10-06T10:56:26.778Z"
+ },
+ {
+  "id": "Q10",
+  "file": "Q10.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 4 Query complete 00:00:00.078 LF Ln 10, Col 23",
+  "grid": [
+   [
+    "Meera Iyer",
+    "Artificial Intelligence & ML",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "95"
+   ],
+   [
+    "Diya Patel",
+    "Artificial Intelligence & ML",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "92"
+   ],
+   [
+    "Aarav Sharma",
+    "Artificial Intelligence & ML",
+    "DBMS Lab",
+    "Prof. Rahul Mehta",
+    "88"
+   ],
+   [
+    "Diya Patel",
+    "Artificial Intelligence & ML",
+    "Machine Learning",
+    "Dr. Anita Deshmukh",
+    "85"
+   ]
+  ],
+  "editor_text": "-- Q10. 5-table JOIN : toppers (marks >= 85) with department and faculty\nSELECT s.student_name, d.department_name, c.course_name,\n       f.faculty_name, e.marks\nFROM student s\nINNER JOIN department d ON s.department_id = d.department_id\nINNER JOIN enrollment e ON s.student_id    = e.student_id\nINNER JOIN course c     ON e.course_id     = c.course_id\nINNER JOIN faculty f    ON c.faculty_id    = f.faculty_id\nWHERE e.marks >= 85\nORDER BY e.marks DESC;",
+  "captured_at": "2026-10-06T10:56:32.023Z"
+ },
+ {
+  "id": "Q11",
+  "file": "Q11.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 2 Query complete 00:00:00.093 LF Ln 6, Col 23",
+  "grid": [
+   [
+    "9",
+    "Neha Joshi",
+    "2025"
+   ],
+   [
+    "10",
+    "Yash Kulkarni",
+    "2025"
+   ]
+  ],
+  "editor_text": "-- Q11. LEFT JOIN + IS NULL : students not enrolled in any course\nSELECT s.student_id, s.student_name, s.admission_year\nFROM student s\nLEFT JOIN enrollment e ON s.student_id = e.student_id\nWHERE e.enrollment_id IS NULL\nORDER BY s.student_id;",
+  "captured_at": "2026-10-06T10:56:36.623Z"
+ },
+ {
+  "id": "Q12",
+  "file": "Q12.png",
+  "editor_matches_sql": true,
+  "status": "Total rows: 5 Query complete 00:00:00.081 LF Ln 10, Col 26",
+  "grid": [
+   [
+    "Artificial Intelligence & ML",
+    "3",
+    "6",
+    "88.17"
+   ],
+   [
+    "Computer Science",
+    "3",
+    "5",
+    "76.60"
+   ],
+   [
+    "Electronics & Telecom",
+    "1",
+    "1",
+    "70.00"
+   ],
+   [
+    "Mechanical Engineering",
+    "1",
+    "1",
+    "63.00"
+   ],
+   [
+    "Civil Engineering",
+    "0",
+    "0",
+    "[null]"
+   ]
+  ],
+  "editor_text": "-- Q12. Multi-table JOIN + GROUP BY : department-wise summary\nSELECT d.department_name,\n       COUNT(DISTINCT s.student_id) AS total_students,\n       COUNT(e.enrollment_id)       AS enrollments,\n       ROUND(AVG(e.marks), 2)       AS avg_marks\nFROM department d\nLEFT JOIN student s    ON d.department_id = s.department_id\nLEFT JOIN enrollment e ON s.student_id    = e.student_id\nGROUP BY d.department_id, d.department_name\nORDER BY d.department_id;",
+  "captured_at": "2026-10-06T10:56:41.600Z"
+ }
+]

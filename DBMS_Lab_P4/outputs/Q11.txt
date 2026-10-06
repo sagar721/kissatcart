@@ -1,0 +1,6 @@
+ student_id | student_name  | admission_year 
+------------+---------------+----------------
+          9 | Neha Joshi    |           2025
+         10 | Yash Kulkarni |           2025
+(2 rows)
+
