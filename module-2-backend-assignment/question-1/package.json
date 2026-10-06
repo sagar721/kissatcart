@@ -1,0 +1,13 @@
+{
+  "name": "question-1-modern-javascript",
+  "version": "1.0.0",
+  "description": "Module 2 - Question 1: Refactoring legacy JavaScript using ES6+ features",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "legacy": "node legacy.js"
+  },
+  "author": "SAGAR KUMAR (SOE25BTAM29)",
+  "license": "ISC"
+}

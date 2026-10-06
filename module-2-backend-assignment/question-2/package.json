@@ -1,0 +1,12 @@
+{
+  "name": "question-2-student-modules",
+  "version": "1.0.0",
+  "description": "Module 2 - Question 2: Modular student management application using ES Modules",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "SAGAR KUMAR (SOE25BTAM29)",
+  "license": "ISC"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "question-3-event-loop",
+  "version": "1.0.0",
+  "description": "Module 2 - Question 3: Demonstration of the Node.js Event Loop",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "SAGAR KUMAR (SOE25BTAM29)",
+  "license": "ISC"
+}

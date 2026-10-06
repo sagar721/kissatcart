@@ -1,0 +1,15 @@
+{
+  "name": "question-4-reliable-async",
+  "version": "1.0.0",
+  "description": "Module 2 - Question 4: Reliable asynchronous data processing with error handling",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test:success": "node app.js valid",
+    "test:invalid": "node app.js invalid",
+    "test:missing": "node app.js missing"
+  },
+  "author": "SAGAR KUMAR (SOE25BTAM29)",
+  "license": "ISC"
+}

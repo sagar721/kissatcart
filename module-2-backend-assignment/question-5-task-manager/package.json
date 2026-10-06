@@ -1,0 +1,20 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Module 2 - Question 5: CLI Task Manager built with Node.js ES Modules, async fs/promises and dotenv",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "keywords": ["nodejs", "es-modules", "cli", "task-manager"],
+  "author": "SAGAR KUMAR (SOE25BTAM29)",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
